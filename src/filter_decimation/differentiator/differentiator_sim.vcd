@@ -1,0 +1,101 @@
+$date
+	Sat Jun 27 23:12:04 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_differentiator $end
+$var wire 25 ! out_diff [24:0] $end
+$var reg 1 " clk $end
+$var reg 25 # in_diff [24:0] $end
+$var reg 1 $ rst $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 25 % in_diff [24:0] $end
+$var wire 1 $ rst $end
+$var reg 25 & in_min1 [24:0] $end
+$var reg 25 ' out_diff [24:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx '
+bx &
+b0 %
+1$
+b0 #
+0"
+bx !
+$end
+#1000000
+b0 !
+b0 '
+b0 &
+0$
+#6000000
+1$
+#10416660
+b1100100 !
+b1100100 '
+b1100100 &
+b1100100 #
+b1100100 %
+1"
+#20833320
+0"
+#31249980
+b0 !
+b0 '
+1"
+#41666640
+0"
+#52083300
+1"
+#62499960
+0"
+#72916620
+b110010 !
+b110010 '
+b10010110 &
+b10010110 #
+b10010110 %
+1"
+#83333280
+0"
+#93749940
+b1000110 !
+b1000110 '
+b11011100 &
+b11011100 #
+b11011100 %
+1"
+#104166600
+0"
+#114583260
+b1111111111111111111101100 !
+b1111111111111111111101100 '
+b11001000 &
+b11001000 #
+b11001000 %
+1"
+#124999920
+0"
+#135416580
+b0 !
+b0 '
+1"
+#145833240
+0"
+#156249900
+1"
+#166666560
+0"
+#177083220
+1"

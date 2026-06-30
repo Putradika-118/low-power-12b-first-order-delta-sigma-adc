@@ -1,0 +1,118 @@
+$date
+	Sat Jun 27 20:38:52 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_integrator $end
+$var wire 25 ! out_int [24:0] $end
+$var reg 1 " clk $end
+$var reg 25 # in_int [24:0] $end
+$var reg 1 $ rst $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 25 % in_int [24:0] $end
+$var wire 1 $ rst $end
+$var reg 25 & out_int [24:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx &
+b0 %
+1$
+b0 #
+0"
+bx !
+$end
+#10000
+b0 !
+b0 &
+0$
+#40690
+1"
+#60000
+1$
+#81380
+0"
+#122070
+b1 !
+b1 &
+b1 #
+b1 %
+1"
+#162760
+0"
+#203450
+b10 !
+b10 &
+1"
+#244140
+0"
+#284830
+b11 !
+b11 &
+1"
+#325520
+0"
+#366210
+b100 !
+b100 &
+1"
+#406900
+0"
+#447590
+b101 !
+b101 &
+1"
+#488280
+0"
+#528970
+b111111001 !
+b111111001 &
+b111110100 #
+b111110100 %
+1"
+#569660
+0"
+#610350
+b1111101101 !
+b1111101101 &
+1"
+#651040
+0"
+#691730
+b10111100001 !
+b10111100001 &
+1"
+#732420
+0"
+#773110
+b11111010101 !
+b11111010101 &
+1"
+#813800
+0"
+#854490
+b0 #
+b0 %
+1"
+#895180
+0"
+#935870
+1"
+#976560
+0"
+#1017250
+1"
+#1057940
+0"
+#1098630
+1"
