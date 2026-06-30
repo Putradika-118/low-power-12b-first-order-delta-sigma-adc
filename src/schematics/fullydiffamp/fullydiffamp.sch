@@ -83,7 +83,7 @@ N -200 240 -170 240 {lab=VSS}
 N -370 240 -340 240 {lab=VSS}
 C {symbols/pfet_03v3.sym} 280 90 0 0 {name=M5
 L=0.560u
-W=120.939u
+W=4.838u
 nf=25
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -97,7 +97,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -30 -30 0 1 {name=M2
 L=1u
-W=152.914u
+W=4.911u
 nf=31
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -111,7 +111,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -70 150 0 0 {name=M8
 L=0.560u
-W=54.020u
+W=4.911u
 nf=11
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -125,7 +125,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 160 150 0 1 {name=M7
 L=0.560u
-W=54.020u
+W=4.911u
 nf=11
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -139,7 +139,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 120 -30 0 0 {name=M1
 L=1u
-W=152.914u
+W=4.911u
 nf=31
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -153,7 +153,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -180 90 0 1 {name=M6
 L=0.560u
-W=120.939u
+W=4.838u
 nf=25
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -167,7 +167,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -320 30 0 1 {name=M4
 L=1u
-W=152.914u
+W=4.933u
 nf=31
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -181,7 +181,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 430 30 0 0 {name=M3
 L=1u
-W=152.914u
+W=4.933u
 nf=31
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -195,7 +195,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 120 300 0 0 {name=M9
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -209,7 +209,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -30 300 0 1 {name=M10
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -223,7 +223,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 430 230 0 0 {name=M11
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -237,7 +237,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 320 230 0 1 {name=M13
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -251,7 +251,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -220 240 0 0 {name=M12
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -265,7 +265,7 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -320 240 0 1 {name=M14
 L=1u
-W=35.738u
+W=4.467u
 nf=8
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
