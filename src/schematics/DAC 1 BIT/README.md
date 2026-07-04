@@ -5,7 +5,7 @@ The 1-bit DAC is implemented as the feedback DAC block in the first-order Contin
 Since the sigma-delta modulator uses a single-bit quantizer, the DAC only needs to select between two reference levels, V~REF+~ and V~REF-~. A simple 1-bit DAC is suitable for this architecture because it is inherently linear compared to multi-bit DACs.
 
 <p align="center">
-  <img src="../../../docs/images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
+  <img src="../../../docs/images/DAC_Position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 1. Position of the 1-Bit DAC within the Sigma-Delta ADC Loop</h4>
 
@@ -105,6 +105,11 @@ To validate the performance against the target specifications, the Transmission 
 
 The DAC has been verified through transient (.tran) and DC operating point simulations. The testbench confirms that the output switches cleanly between the reference levels with latency and power metrics meeting the design constraints.
 
+<p align="center">
+  <img src="../../../docs/images/dac1bit_tb.jpeg" alt="Testbench Schematic for DAC" width="700"/>
+</p>
+<h4 align="center" style="font-size:16px;">Figure 7. Position of the 1-Bit DAC within the Sigma-Delta ADC Loop</h4>
+
 <div align="center">
   <table>
     <tr>
@@ -119,7 +124,7 @@ The DAC has been verified through transient (.tran) and DC operating point simul
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 7. Simulation Result I-O</h4>
+<h4 align="center" style="font-size:16px;">Figure 8. Simulation Result I-O</h4>
 
 <div align="center">
   <table>
@@ -135,7 +140,7 @@ The DAC has been verified through transient (.tran) and DC operating point simul
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 8. Simulation Result I-O (2)</h4>
+<h4 align="center" style="font-size:16px;">Figure 9. Simulation Result I-O (2)</h4>
 
 <div align="center">
 
