@@ -14,13 +14,13 @@ N 40 10 70 10 {lab=GND}
 N -107.5 -87.5 -107.5 -77.5 {lab=GND}
 N 30 -65 70 -65 {lab=VDD}
 N -107.5 -157.5 -107.5 -147.5 {lab=VDD}
-N 110 7.5 110 45 {lab=#net3}
+N 110 7.5 110 45 {lab=vbiasn}
 N 180 110 180 120 {lab=GND}
 N 110 105 110 115 {lab=GND}
-N 171.25 -42.5 205 -42.5 {lab=#net4}
-N 172.5 -18.75 206.25 -18.75 {lab=#net5}
-N 142.5 50 180 50 {lab=#net6}
-N 142.5 -12.5 142.5 50 {lab=#net6}
+N 171.25 -42.5 205 -42.5 {lab=vop}
+N 172.5 -18.75 206.25 -18.75 {lab=vom}
+N 142.5 50 180 50 {lab=vbiasp}
+N 142.5 -12.5 142.5 50 {lab=vbiasp}
 C {vsource.sym} -210 -15 0 0 {name=V1 value="dc \{VCM\} ac 0.5 180" savecurrent=false}
 C {gnd.sym} -210 25 0 0 {name=l1 lab=GND}
 C {vsource.sym} -80 20 0 0 {name=V2 value="dc \{VCM\} ac 0.5 0" savecurrent=false}
@@ -36,13 +36,7 @@ C {gnd.sym} 110 115 0 0 {name=l7 lab=GND}
 C {gnd.sym} 180 120 0 0 {name=l8 lab=GND}
 C {noconn.sym} 205 -42.5 0 1 {name=l9}
 C {noconn.sym} 206.25 -18.75 0 1 {name=l10}
-C {devices/code_shown.sym} -685 95 0 0 {name=MODELS only_toplevel=true
-format="tcleval( @value )"
-value="
-.include $::180MCU_MODELS/design.ngspice
-.lib $::180MCU_MODELS/sm141064.ngspice typical
-"}
-C {devices/code_shown.sym} -1510 -655 0 0 {name=NGSPICE only_toplevel=true
+C {devices/code_shown.sym} -1268.75 -793.75 0 0 {name=NGSPICE only_toplevel=true
 value="
 * =====================================================
 * 1. GF180 MODEL
@@ -55,10 +49,14 @@ value="
 * =====================================================
 .param VDDVAL=3.3
 .param VCM=1.65
-.param VBIASN_VAL=0.89
-.param VBIASP_VAL=2.30
+.param VBIASN_VAL=0.65
+.param VBIASP_VAL=2.5
 .param CL=0.5p
 .param GCMFB=1m
+.param Wp=25u
+.param Kp=1.25u
+.param Wn=12.5u
+.param Kn=1.25u
 
 .option reltol=1e-4 abstol=1e-12 vntol=1e-6 temp=27
 
@@ -82,7 +80,7 @@ Bcmom Vom 0 I=\{GCMFB*(((v(Vop)+v(Vom))/2)-VCM)\}
 .control
 * Wajib menyimpan parameter internal sebelum analisis jalan
 save all
-save @m.xm7.m0[id] @m.xm7.m0[gm] @m.xm7.m0[gds] @m.xm7.m0[vgs] @m.xm7.m0[vds] @m.xm7.m0[vdsat]
+save @m.x1.xm7.m0[id] @m.x1.xm7.m0[gm] @m.x1.xm7.m0[gds] @m.x1.xm7.m0[vgs] @m.x1.xm7.m0[vds] @m.x1.xm7.m0[vdsat]
 
 echo ==========================================
 echo OTA VERIFICATION START
@@ -98,13 +96,39 @@ op
 let vocm = (v(Vop)+v(Vom))/2
 let vod = v(Vop)-v(Vom)
 
+echo ====================================================
+echo   AUDIT OPERATING POINT TRANSISTOR XM1 - XM14 (X2)  
+echo ====================================================
+  
+echo --- TRANSISTOR XM1 - XM5 ---
+show m.x1.xm1.m0  : vds vdsat gm gds id
+show m.x1.xm2.m0  : vds vdsat gm gds id
+show m.x1.xm3.m0  : vds vdsat gm gds id
+show m.x1.xm4.m0  : vds vdsat gm gds id
+show m.x1.xm5.m0  : vds vdsat gm gds id
+  
+echo --- TRANSISTOR XM6 - XM10 ---
+show m.x1.xm6.m0  : vds vdsat gm gds id
+show m.x1.xm7.m0  : vds vdsat gm gds id
+show m.x1.xm8.m0  : vds vdsat gm gds id
+show m.x1.xm9.m0  : vds vdsat gm gds id
+show m.x1.xm10.m0 : vds vdsat gm gds id
+  
+echo --- TRANSISTOR XM11 - XM14 ---
+show m.x1.xm11.m0 : vds vdsat gm gds id
+show m.x1.xm12.m0 : vds vdsat gm gds id
+show m.x1.xm13.m0 : vds vdsat gm gds id
+show m.x1.xm14.m0 : vds vdsat gm gds id
+
+echo ====================================================
+
 * Ekstraksi Parameter Transistor Input (XM7)
-let id_m7 = @m.xm7.m0[id]
-let gm_m7 = @m.xm7.m0[gm]
-let gds_m7 = @m.xm7.m0[gds]
-let vgs_m7 = @m.xm7.m0[vgs]
-let vds_m7 = @m.xm7.m0[vds]
-let vdsat_m7 = @m.xm7.m0[vdsat]
+let id_m7 = @m.x1.xm7.m0[id]
+let gm_m7 = @m.x1.xm7.m0[gm]
+let gds_m7 = @m.x1.xm7.m0[gds]
+let vgs_m7 = @m.x1.xm7.m0[vgs]
+let vds_m7 = @m.x1.xm7.m0[vds]
+let vdsat_m7 = @m.x1.xm7.m0[vdsat]
 let gm_id = gm_m7 / id_m7
 let intrinsic_gain = gm_m7 / gds_m7
 
@@ -126,6 +150,9 @@ ac dec 100 1 10G
 let vout_diff = v(Vop)-v(Vom)
 let gain_db = db(vout_diff)
 let phase_deg = 180/PI * ph(vout_diff)
+
+plot db(vout_diff)
+plot phase_deg
 
 write ota_ac.raw gain_db phase_deg vout_diff
 
@@ -153,4 +180,8 @@ echo FINISHED! BUKA .RAW FILE DI GAW
 echo ==========================================
 .endc
 "}
-C {low-power-12b-first-order-delta-sigma-adc/src/schematics/fullydiffamp/fullydiffamp.sym} 130 60 0 0 {name=x1}
+C {fullydiffamp.sym} 130 60 0 0 {name=x1}
+C {lab_wire.sym} 190 -42.5 0 1 {name=p1 sig_type=std_logic lab=vop}
+C {lab_wire.sym} 190 -18.75 0 1 {name=p2 sig_type=std_logic lab=vom}
+C {lab_wire.sym} 142.5 22.5 0 1 {name=p3 sig_type=std_logic lab=vbiasp}
+C {lab_wire.sym} 110 37.5 0 1 {name=p4 sig_type=std_logic lab=vbiasn}
