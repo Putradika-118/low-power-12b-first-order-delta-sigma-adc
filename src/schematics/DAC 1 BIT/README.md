@@ -5,7 +5,7 @@ The 1-bit DAC is implemented as the feedback DAC block in the first-order Contin
 Since the sigma-delta modulator uses a single-bit quantizer, the DAC only needs to select between two reference levels, V~REF+~ and V~REF-~. A simple 1-bit DAC is suitable for this architecture because it is inherently linear compared to multi-bit DACs.
 
 <p align="center">
-  <img src="docs/images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
+  <img src="images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 1. Position of the 1-Bit DAC within the Sigma-Delta ADC Loop</h4>
 
@@ -32,12 +32,12 @@ The main design concerns for this block are switch resistance (to ensure proper 
 Instead of a standard digital inverter, this design utilizes a **CMOS Transmission Gate (TG)** architecture. When the comparator output (VIN) is high, the top TG connects the feedback node to V~REF+~. When VIN is low, the bottom TG connects the feedback node to V~REF-~. 
 
 <p align="center">
-  <img src="docs/images/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="600"/>
+  <img src="images/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="600"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 2. 1-Bit DAC Schematic (Transmission Gate Implementation)</h4>
 
 <p align="center">
-  <img src="docs/images/dac1bit_symbol.jpeg" alt="Block Symbol of DAC 1 bit" width="600"/>
+  <img src="images/dac1bit_symbol.jpeg" alt="Block Symbol of DAC 1 bit" width="600"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 3. Block Symbol of DAC 1 bit</h4>
 
@@ -50,9 +50,9 @@ The DAC serves as the critical bridge between the digital and analog domains of 
 *   **Output Interface:** Connected to the Difference Amplifier to deliver the converted analog feedback signal.
 
 <p align="center">
-  <img src="docs/images/dac1bit_signalflow" alt="Signal Flow and Interfaces" width="700"/>
+  <img src="images/dac1bit_signalflow.jpeg" alt="Signal Flow and Interfaces" width="700"/>
 </p>
-<h4 align="center" style="font-size:16px;">Figure 3. Signal Flow (Feedback DAC Path Only)</h4>
+<h4 align="center" style="font-size:16px;">Figure 4. Signal Flow (Feedback DAC Path Only)</h4>
 
 ## 4. Important Design Decisions & Sizing
 
@@ -62,33 +62,33 @@ To prevent excess loop delay which can degrade the stability and SNR of the Sigm
   <table>
     <tr>
       <td align="center">
-        <img src="docs/images/ILEAK.jpeg" alt="I Leakage Schematic" width="400"/><br>
+        <img src="images/ILEAK.jpeg" alt="I Leakage Schematic" width="400"/><br>
         <i>(a) Schematic</i>
       </td>
       <td align="center">
-        <img src="docs/images/ILEAK_PLOT.jpeg" alt="I Leakage Evaluation" width="400"/><br>
+        <img src="images/ILEAK_PLOT.jpeg" alt="I Leakage Evaluation" width="400"/><br>
         <i>(b) Evaluation Plot</i>
       </td>
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 4. Design Evaluation: Off-State Leakage Current</h4>
+<h4 align="center" style="font-size:16px;">Figure 5. Design Evaluation: Off-State Leakage Current</h4>
 
 <div align="center">
   <table>
     <tr>
       <td align="center">
-        <img src="docs/images/RDS_CALC.jpeg" alt="Rds Schematic" width="400"/><br>
+        <img src="images/RDS_CALC.jpeg" alt="Rds Schematic" width="400"/><br>
         <i>(a) Schematic</i>
       </td>
       <td align="center">
-        <img src="docs/images/RDS_PLOT.jpeg" alt="Rds Evaluation Plot" width="400"/><br>
+        <img src="images/RDS_PLOT.jpeg" alt="Rds Evaluation Plot" width="400"/><br>
         <i>(b) Transient Response Plot</i>
       </td>
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 5. Design Evaluation: Switch Resistance (Rds)</h4>
+<h4 align="center" style="font-size:16px;">Figure 6. Design Evaluation: Switch Resistance (Rds)</h4>
 
 To validate the performance against the target specifications, the Transmission Gate (TG) sizing was characterized using NGSPICE:
 
@@ -97,9 +97,9 @@ To validate the performance against the target specifications, the Transmission 
 
 **Measurement Methodology & Results:**
 
-1.  **Off-State Leakage Current (Figure 4):** To measure how much current leaks when the switch is fully OFF, the TG is disabled (PMOS gate tied to 3.3V, NMOS gate to GND). The input node is swept from 0V to 3.3V while the output is grounded. The NGSPICE evaluation shows that at the maximum 3.3V supply, the leakage is only **5.22 pA**, well below the 10 pA limit. This guarantees excellent isolation without discharging the feedback capacitors in the Sigma-Delta loop.
+1.  **Off-State Leakage Current (Figure 5):** To measure how much current leaks when the switch is fully OFF, the TG is disabled (PMOS gate tied to 3.3V, NMOS gate to GND). The input node is swept from 0V to 3.3V while the output is grounded. The NGSPICE evaluation shows that at the maximum 3.3V supply, the leakage is only **5.22 pA**, well below the 10 pA limit. This guarantees excellent isolation without discharging the feedback capacitors in the Sigma-Delta loop.
     
-2.  **Switch On-Resistance (Figure 5):** To evaluate Rds when the switch is fully ON, the TG is enabled (PMOS gate to GND, NMOS gate to 3.3V). A constant ideal current source of **1 µA** is applied to the output node to draw current through the switch, and the input voltage is swept from 0V to 3.3V. Using Ohm's law directly in the simulation script (`let ron = (v(a) - v(b))/1u`), the measured peak resistance is **800 Ω**. This successfully meets the < 1000 Ω constraint, ensuring the DAC latency remains well within the required limit.
+2.  **Switch On-Resistance (Figure 6):** To evaluate Rds when the switch is fully ON, the TG is enabled (PMOS gate to GND, NMOS gate to 3.3V). A constant ideal current source of **1 µA** is applied to the output node to draw current through the switch, and the input voltage is swept from 0V to 3.3V. Using Ohm's law directly in the simulation script (`let ron = (v(a) - v(b))/1u`), the measured peak resistance is **800 Ω**. This successfully meets the < 1000 Ω constraint, ensuring the DAC latency remains well within the required limit.
 
 ## 5. Verification Status & Final Performance
 
@@ -109,33 +109,33 @@ The DAC has been verified through transient (.tran) and DC operating point simul
   <table>
     <tr>
       <td align="center">
-        <img src="docs/images/dac1bit_sim2.jpeg" alt="Simulation Result Input-Output" width="400"/><br>
+        <img src="images/dac1bit_sim2.jpeg" alt="Simulation Result Input-Output" width="400"/><br>
         <i>(a) Input-Output</i>
       </td>
       <td align="center">
-        <img src="docs/images/dac1bit_sim1.jpeg" alt="I-O Latency" width="400"/><br>
+        <img src="images/dac1bit_sim1.jpeg" alt="I-O Latency" width="400"/><br>
         <i>(b) Latency</i>
       </td>
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 6. Simulation Result I-O</h4>
+<h4 align="center" style="font-size:16px;">Figure 7. Simulation Result I-O</h4>
 
 <div align="center">
   <table>
     <tr>
       <td align="center">
-        <img src="docs/images/dac1bit_input.jpeg" alt="Input Signal DAC 1 Bit" width="400"/><br>
+        <img src="images/dac1bit_input.jpeg" alt="Input Signal DAC 1 Bit" width="400"/><br>
         <i>(a) Input Testbench Signal</i>
       </td>
       <td align="center">
-        <img src="docs/images/dac1bit_output.jpeg" alt="Output Signal DAC 1 Bit" width="400"/><br>
+        <img src="images/dac1bit_output.jpeg" alt="Output Signal DAC 1 Bit" width="400"/><br>
         <i>(b) Output Signal</i>
       </td>
     </tr>
   </table>
 </div>
-<h4 align="center" style="font-size:16px;">Figure 7. Simulation Result I-O (2)</h4>
+<h4 align="center" style="font-size:16px;">Figure 8. Simulation Result I-O (2)</h4>
 
 <div align="center">
 
