@@ -1,122 +1,156 @@
 # 1-Bit DAC Progress Log
 
-The 1-bit DAC is implemented as the feedback DAC block in the first-order sigma-delta ADC. Its main function is to convert the digital output bitstream from the comparator into an analog feedback signal that is returned to the input summing/integrator path. Since the sigma-delta modulator uses a single-bit quantizer, the DAC only needs to select between two reference levels, V<sub>REF+</sub> and V<sub>REF-</sub>.  
+The 1-bit DAC is implemented as the feedback DAC block in the first-order Continuous-Time Sigma-Delta ADC. Its main function is to convert the digital output bitstream from the Latched Comparator into an analog feedback signal that is returned to the Difference Amplifier/Integrator path. 
 
-In the sigma-delta loop, this feedback signal is subtracted from the analog input signal so that the integrator processes the error between the input and the quantized feedback value. A simple 1-bit DAC is suitable for this architecture because it is inherently linear compared to multi-bit DACs, as its output only switches between two reference voltages. The main design concerns are switch resistance, settling behavior, reference accuracy, output swing, leakage current, and compatibility with the sampling clock used by the modulator.
-
-## Target Specification
-
-<div align="center">
-
-| **Parameter** | **Value / Target** | **Unit** |
-|--------------|--------------------|----------|
-| Supply Voltage | 3.3 | V |
-| DAC Resolution | 1 | bit |
-| Output Levels | V<sub>REF+</sub> (3.3) / V<sub>REF-</sub> (0) | V |
-| Rds Transmission Gate | <1000 | Ω |
-| I<sub>Leakage</sub> | < 10 | pA |
-| Delay<sub>I-O</sub> |< 100 | ns | 
-| Power | < 3 | mW |
-
-</div>
-
-## Schematic Design
+Since the sigma-delta modulator uses a single-bit quantizer, the DAC only needs to select between two reference levels, V~REF+~ and V~REF-~. A simple 1-bit DAC is suitable for this architecture because it is inherently linear compared to multi-bit DACs.
 
 <p align="center">
-  <img src="../../../docs/images/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="800"/>
+  <img src="images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
 </p>
-<h4 align="center" style="font-size:16px;">Figure 1. 1-Bit DAC Schematic</h4>
+<h4 align="center" style="font-size:16px;">Figure 1. Position of the 1-Bit DAC within the Sigma-Delta ADC Loop</h4>
 
-The designed 1-bit DAC uses the comparator output as a digital control signal to select between the positive and negative reference levels. When the comparator output is high, the DAC connects the feedback node to V<sub>REF+</sub>. When the comparator output is low, the DAC connects the feedback node to V<sub>REF-</sub>. This feedback voltage is then applied back to the sigma-delta modulator loop.
+## 1. Target Specification
 
-The DAC is designed to operate together with the switched-capacitor integrator and comparator. Therefore, the DAC output must settle sufficiently within the available clock phase so that the feedback value is valid before the next integration or comparison event.
-
-## Design Considerations
-
-<div align="center">
-
-| **Design Aspect** | **Consideration** |
-|------------------|-------------------|
-| Linearity | Inherently good due to 1-bit operation |
-| Output Settling | Must settle within the sampling phase |
-| Switch Resistance | Should be low enough to avoid incomplete settling |
-| Leakage Current | Should be minimized to avoid feedback error |
-| Clock Compatibility | Must follow the modulator sampling clock |
-| Reference Accuracy | V<sub>REF+</sub> and V<sub>REF-</sub> directly affect DAC feedback level |
-| Common-Mode Behavior | Differential feedback should preserve the ADC common-mode level |
-| Power Consumption | Should remain small compared to OTA and comparator blocks |
-
-</div>
-
-## Simulation
-
-The 1-bit DAC should be verified using transient simulation by applying a digital control signal that alternates between logic low and logic high. The expected output behavior is that the DAC output switches cleanly between V<sub>REF+</sub> and V<sub>REF-</sub> according to the comparator bitstream.
-
-Recommended simulations include:
-
-<div align="center">
-
-| **Simulation** | **Purpose** |
-|---------------|-------------|
-| DC Operating Point | Verify supply, references, and switch biasing |
-| Transient Switching | Verify output toggling between V<sub>REF+</sub> and V<sub>REF-</sub> |
-| Settling Time | Check whether DAC output settles within the clock phase |
-| Output Swing | Confirm feedback output reaches the required reference levels |
-| Leakage Test | Check off-state leakage current |
-| Power Measurement | Estimate DAC power contribution |
-| Corner Simulation | Verify behavior across process, voltage, and temperature corners |
-
-</div>
-
-## Expected DAC Operation
-
-<div align="center">
-
-| **Comparator Output** | **Selected DAC Output** | **Feedback Meaning** |
-|----------------------|--------------------------|----------------------|
-| Logic High | V<sub>REF+</sub> | Positive feedback level |
-| Logic Low | V<sub>REF-</sub> | Negative feedback level |
-
-</div>
-
-For a fully differential implementation, the DAC should generate complementary feedback levels so that the differential feedback signal is applied correctly while maintaining the desired output common-mode level.
-
-## Verification Status
-
-<div align="center">
-
-| **Parameter** | **Target** | **Status** |
-|--------------|------------|------------|
-| Output switches between V<sub>REF+</sub> and V<sub>REF-</sub> | Required | To be verified |
-| Output settling within clock phase | Required | To be verified |
-| Reference level accuracy | Required | To be verified |
-| Off leakage current | Low leakage | To be verified |
-| Power consumption | Within ADC budget | To be verified |
-| PVT corner robustness | TT / FF / SS | To be verified |
-
-</div>
-
-## Performance of Designed 1-Bit DAC
+The main design concerns for this block are switch resistance (to ensure proper time constant $\tau$), settling behavior to prevent excess loop delay, leakage current, and output swing.
 
 <div align="center">
 
 | **Parameter** | **Value / Target** | **Unit** |
 |--------------|--------------------|----------|
-| Supply Voltage | 3.3 | V |
+| Supply Voltage (VDD) | 3.3 | V |
 | DAC Resolution | 1 | bit |
-| V<sub>REF+</sub> | To be defined / simulated | V |
-| V<sub>REF-</sub> | To be defined / simulated | V |
-| Output Common-Mode | 1.65 | V |
-| Sampling Frequency | 80 | MHz |
-| Settling Time | To be simulated | ns |
-| Off Leakage Current | To be simulated | A |
-| Power Consumption | To be simulated | W |
-| Corner Verification | Pending | - |
+| Output Levels | V~REF+~ (3.3) / V~REF-~ (0) | V |
+| Rds Transmission Gate | < 1000 | Ω |
+| I~Leakage~ | < 10 | pA |
+| Delay~I-O~ | < 100 | ns | 
+| Power | << 3 | mW |
+
+</div>
+
+## 2. Schematic Design & Implementation
+
+Instead of a standard digital inverter, this design utilizes a **CMOS Transmission Gate (TG)** architecture. When the comparator output (VIN) is high, the top TG connects the feedback node to V~REF+~. When VIN is low, the bottom TG connects the feedback node to V~REF-~. 
+
+<p align="center">
+  <img src="images/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="600"/>
+</p>
+<h4 align="center" style="font-size:16px;">Figure 2. 1-Bit DAC Schematic (Transmission Gate Implementation)</h4>
+
+<p align="center">
+  <img src="images/dac1bit_symbol.jpeg" alt="Block Symbol of DAC 1 bit" width="600"/>
+</p>
+<h4 align="center" style="font-size:16px;">Figure 3. Block Symbol of DAC 1 bit</h4>
+
+The Transmission Gate structure is chosen because it provides a highly accurate rail-to-rail voltage swing without threshold voltage drops, ensuring better isolation between the digital control signals and the sensitive analog feedback path.
+
+## 3. Interfaces & Signal Flow
+
+The DAC serves as the critical bridge between the digital and analog domains of the modulator.
+*   **Input Interface:** Connected to the Latched Comparator to receive the 1-bit digital bitstream (pulse/rectangular wave).
+*   **Output Interface:** Connected to the Difference Amplifier to deliver the converted analog feedback signal.
+
+<p align="center">
+  <img src="images/dac1bit_signalflow" alt="Signal Flow and Interfaces" width="700"/>
+</p>
+<h4 align="center" style="font-size:16px;">Figure 3. Signal Flow (Feedback DAC Path Only)</h4>
+
+## 4. Important Design Decisions & Sizing
+
+To prevent excess loop delay which can degrade the stability and SNR of the Sigma-Delta system, the input-to-output latency is strictly limited to < 100 ns. 
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="images/ILEAK.jpeg" alt="I Leakage Schematic" width="400"/><br>
+        <i>(a) Schematic</i>
+      </td>
+      <td align="center">
+        <img src="images/ILEAK_PLOT.jpeg" alt="I Leakage Evaluation" width="400"/><br>
+        <i>(b) Evaluation Plot</i>
+      </td>
+    </tr>
+  </table>
+</div>
+<h4 align="center" style="font-size:16px;">Figure 4. Design Evaluation: Off-State Leakage Current</h4>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="images/RDS_CALC.jpeg" alt="Rds Schematic" width="400"/><br>
+        <i>(a) Schematic</i>
+      </td>
+      <td align="center">
+        <img src="images/RDS_PLOT.jpeg" alt="Rds Evaluation Plot" width="400"/><br>
+        <i>(b) Transient Response Plot</i>
+      </td>
+    </tr>
+  </table>
+</div>
+<h4 align="center" style="font-size:16px;">Figure 5. Design Evaluation: Switch Resistance (Rds)</h4>
+
+To validate the performance against the target specifications, the Transmission Gate (TG) sizing was characterized using NGSPICE:
+
+* **Sizing Trade-offs:** Using a minimum channel length (L = 180nm) reduces the transient delay of switching. However, keeping the width (W) at minimum yields a large Rds, which drastically slows down the RC settling time.
+* **Final Decision:** The transistor width (W) is selectively increased to drop Rds below 1 kΩ to ensure fast settling, carefully balanced to keep the leakage current within the low pA range (Target: < 10 pA).
+
+**Measurement Methodology & Results:**
+
+1.  **Off-State Leakage Current (Figure 4):** To measure how much current leaks when the switch is fully OFF, the TG is disabled (PMOS gate tied to 3.3V, NMOS gate to GND). The input node is swept from 0V to 3.3V while the output is grounded. The NGSPICE evaluation shows that at the maximum 3.3V supply, the leakage is only **5.22 pA**, well below the 10 pA limit. This guarantees excellent isolation without discharging the feedback capacitors in the Sigma-Delta loop.
+    
+2.  **Switch On-Resistance (Figure 5):** To evaluate Rds when the switch is fully ON, the TG is enabled (PMOS gate to GND, NMOS gate to 3.3V). A constant ideal current source of **1 µA** is applied to the output node to draw current through the switch, and the input voltage is swept from 0V to 3.3V. Using Ohm's law directly in the simulation script (`let ron = (v(a) - v(b))/1u`), the measured peak resistance is **800 Ω**. This successfully meets the < 1000 Ω constraint, ensuring the DAC latency remains well within the required limit.
+
+## 5. Verification Status & Final Performance
+
+The DAC has been verified through transient (.tran) and DC operating point simulations. The testbench confirms that the output switches cleanly between the reference levels with latency and power metrics meeting the design constraints.
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="dac1bit_sim2.jpeg" alt="Simulation Result Input-Output" width="400"/><br>
+        <i>(a) Input-Output</i>
+      </td>
+      <td align="center">
+        <img src="images/dac1bit_sim1.jpeg" alt="I-O Latency" width="400"/><br>
+        <i>(b) Latency</i>
+      </td>
+    </tr>
+  </table>
+</div>
+<h4 align="center" style="font-size:16px;">Figure 6. Simulation Result I-O</h4>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="dac1bit_input.jpeg" alt="Input Signal DAC 1 Bit" width="400"/><br>
+        <i>(a) Input Testbench Signal</i>
+      </td>
+      <td align="center">
+        <img src="images/dac1bit_output.jpeg" alt="Output Signal DAC 1 Bit" width="400"/><br>
+        <i>(b) Output Signal</i>
+      </td>
+    </tr>
+  </table>
+</div>
+<h4 align="center" style="font-size:16px;">Figure 7. Simulation Result I-O (2)</h4>
+
+<div align="center">
+
+| **Design Parameter** | **Target** | **Evaluated TB Result** | **Status** |
+|----------------------|------------|-------------------------|------------|
+| Output Swing | Rail-to-Rail (0 to 3.3V) | Achieved (Switches between V~REF+~ and V~REF-~) | ✅ Pass |
+| Delay~I-O~ (Latency) | < 100 ns | 6.07 ns | ✅ Pass |
+| Rds Transmission Gate | < 1000 Ω | 800 Ω | ✅ Pass |
+| Off Leakage Current | < 10 pA | **5.22 pA** | ✅ Pass |
+| Power Consumption (Avg) | << 3 mW | 0.4552 uW | ✅ Pass |
 
 </div>
 
 ## Notes
 
-The 1-bit DAC is a critical feedback block in the sigma-delta ADC loop. Although the topology is simpler than a multi-bit DAC, its settling behavior and reference switching accuracy strongly affect the modulator performance. The DAC output must be verified together with the switched-capacitor integrator and comparator to ensure that the complete sigma-delta loop operates correctly.
+The 1-bit DAC topology is simple, but its transient behavior directly dictates the overall ADC performance. The verification confirms that the transmission gate sizing successfully balances on-resistance and leakage, ensuring the feedback voltage settles perfectly within the required clock phase.
 
 **Last Updated: 4th July 2026**
