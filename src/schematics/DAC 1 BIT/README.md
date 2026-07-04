@@ -5,7 +5,7 @@ The 1-bit DAC is implemented as the feedback DAC block in the first-order Contin
 Since the sigma-delta modulator uses a single-bit quantizer, the DAC only needs to select between two reference levels, V~REF+~ and V~REF-~. A simple 1-bit DAC is suitable for this architecture because it is inherently linear compared to multi-bit DACs.
 
 <p align="center">
-  <img src="images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
+  <img src="../../docs/images/DAC_position.jpeg" alt="Sigma-Delta Loop Overview" width="700"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 1. Position of the 1-Bit DAC within the Sigma-Delta ADC Loop</h4>
 
@@ -32,12 +32,12 @@ The main design concerns for this block are switch resistance (to ensure proper 
 Instead of a standard digital inverter, this design utilizes a **CMOS Transmission Gate (TG)** architecture. When the comparator output (VIN) is high, the top TG connects the feedback node to V~REF+~. When VIN is low, the bottom TG connects the feedback node to V~REF-~. 
 
 <p align="center">
-  <img src="../../docs/inages/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="600"/>
+  <img src="../../docs/images/dac1bit_schematics.jpeg" alt="1-Bit DAC Schematic" width="600"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 2. 1-Bit DAC Schematic (Transmission Gate Implementation)</h4>
 
 <p align="center">
-  <img src="../../docs/inages/dac1bit_symbol.jpeg" alt="Block Symbol of DAC 1 bit" width="600"/>
+  <img src="../../docs/images/dac1bit_symbol.jpeg" alt="Block Symbol of DAC 1 bit" width="600"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 3. Block Symbol of DAC 1 bit</h4>
 
@@ -50,7 +50,7 @@ The DAC serves as the critical bridge between the digital and analog domains of 
 *   **Output Interface:** Connected to the Difference Amplifier to deliver the converted analog feedback signal.
 
 <p align="center">
-  <img src="../../docs/inages/dac1bit_signalflow.jpeg" alt="Signal Flow and Interfaces" width="700"/>
+  <img src="../../docs/images/dac1bit_signalflow.jpeg" alt="Signal Flow and Interfaces" width="700"/>
 </p>
 <h4 align="center" style="font-size:16px;">Figure 4. Signal Flow (Feedback DAC Path Only)</h4>
 
@@ -62,11 +62,11 @@ To prevent excess loop delay which can degrade the stability and SNR of the Sigm
   <table>
     <tr>
       <td align="center">
-        <img src="../../docs/inages/ILEAK.jpeg" alt="I Leakage Schematic" width="400"/><br>
+        <img src="../../docs/images/ILEAK.jpeg" alt="I Leakage Schematic" width="400"/><br>
         <i>(a) Schematic</i>
       </td>
       <td align="center">
-        <img src="../../docs/inages/ILEAK_PLOT.jpeg" alt="I Leakage Evaluation" width="400"/><br>
+        <img src="../../docs/images/ILEAK_PLOT.jpeg" alt="I Leakage Evaluation" width="400"/><br>
         <i>(b) Evaluation Plot</i>
       </td>
     </tr>
@@ -78,11 +78,11 @@ To prevent excess loop delay which can degrade the stability and SNR of the Sigm
   <table>
     <tr>
       <td align="center">
-        <img src="../../docs/inages/RDS_CALC.jpeg" alt="Rds Schematic" width="400"/><br>
+        <img src="../../docs/images/RDS_CALC.jpeg" alt="Rds Schematic" width="400"/><br>
         <i>(a) Schematic</i>
       </td>
       <td align="center">
-        <img src="../../docs/inages/RDS_PLOT.jpeg" alt="Rds Evaluation Plot" width="400"/><br>
+        <img src="../../docs/images/RDS_PLOT.jpeg" alt="Rds Evaluation Plot" width="400"/><br>
         <i>(b) Transient Response Plot</i>
       </td>
     </tr>
@@ -109,11 +109,11 @@ The DAC has been verified through transient (.tran) and DC operating point simul
   <table>
     <tr>
       <td align="center">
-        <img src="../../docs/inages/dac1bit_sim2.jpeg" alt="Simulation Result Input-Output" width="400"/><br>
+        <img src="../../docs/images/dac1bit_sim2.jpeg" alt="Simulation Result Input-Output" width="400"/><br>
         <i>(a) Input-Output</i>
       </td>
       <td align="center">
-        <img src="../../docs/inages/dac1bit_sim1.jpeg" alt="I-O Latency" width="400"/><br>
+        <img src="../../docs/images/dac1bit_sim1.jpeg" alt="I-O Latency" width="400"/><br>
         <i>(b) Latency</i>
       </td>
     </tr>
@@ -125,11 +125,11 @@ The DAC has been verified through transient (.tran) and DC operating point simul
   <table>
     <tr>
       <td align="center">
-        <img src="../../docs/inages/dac1bit_input.jpeg" alt="Input Signal DAC 1 Bit" width="400"/><br>
+        <img src="../../docs/images/dac1bit_input.jpeg" alt="Input Signal DAC 1 Bit" width="400"/><br>
         <i>(a) Input Testbench Signal</i>
       </td>
       <td align="center">
-        <img src="../../docs/inages/dac1bit_output.jpeg" alt="Output Signal DAC 1 Bit" width="400"/><br>
+        <img src="../../docs/images/dac1bit_output.jpeg" alt="Output Signal DAC 1 Bit" width="400"/><br>
         <i>(b) Output Signal</i>
       </td>
     </tr>
