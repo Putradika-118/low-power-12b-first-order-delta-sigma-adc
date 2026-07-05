@@ -14,18 +14,9 @@ The integrator is implemented using a fully differential switched-capacitor topo
 |--------------|--------------------|----------|
 | Supply Voltage | 3.3 | V |
 | Integrator Type | Fully Differential Switched-Capacitor | - |
-| ADC Architecture | First-Order Sigma-Delta | - |
-| Input Common-Mode | 1.65 | V |
-| Output Common-Mode | 1.65 | V |
-| Target Input Bandwidth | 2 | MHz |
-| OSR | 20 | - |
-| Target Sampling Frequency | 80 | MHz |
-| Target SNDR | >65 | dB |
-| Target ENOB | >10 | bits |
-| OTA DC Gain | >60 | dB |
-| OTA Unity-Gain Frequency | >400 | MHz |
-| OTA Phase Margin | >55 | degree |
-| Load Capacitance | 0.5 | pF |
+| Ron Switch | < 1 | k$\Omega$ |
+| Settling Time | < 2.5 | us |
+| Charge TF Acc | > 99.9 | % |
 | Power Budget Contribution | Part of <3 mW ADC budget | - |
 
 </div>
