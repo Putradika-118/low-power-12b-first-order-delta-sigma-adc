@@ -15,7 +15,7 @@ The amplifier is designed using a fully differential topology to improve noise i
 | Output Type | Fully Differential | - |
 | Input Common-Mode | 1.65 | V |
 | Output Common-Mode | 1.65 | V |
-| Target Input Bandwidth | 2 | MHz |
+| Target Input Bandwidth | >100 | kHz |
 | OSR | 20 | - |
 | Target Sampling Frequency | 80 | MHz |
 | Target SNDR | >65 | dB |
