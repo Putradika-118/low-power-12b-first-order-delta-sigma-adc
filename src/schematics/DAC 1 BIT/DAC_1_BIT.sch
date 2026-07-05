@@ -42,7 +42,7 @@ N 390 -450 390 -410 {lab=VSS}
 N 390 -120 390 -80 {lab=VSS}
 N 390 -260 390 -210 {lab=VDD}
 C {symbols/nfet_03v3.sym} 390 -390 1 1 {name=M1
-L=0.28u
+L=0.3u
 W=6u
 nf=2
 mult=1
@@ -56,7 +56,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 390 -610 3 1 {name=M2
-L=0.28u
+L=0.3u
 W=6u
 nf=2
 mult=1
@@ -70,7 +70,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 390 -60 1 1 {name=M3
-L=0.28u
+L=0.3u
 W=6u
 nf=2
 mult=1
@@ -84,7 +84,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 390 -280 3 1 {name=M4
-L=0.28u
+L=0.3u
 W=6u
 nf=2
 mult=1
@@ -98,7 +98,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 220 -510 0 0 {name=M5
-L=0.5u
+L=0.3u
 W=3u
 nf=1
 mult=1
@@ -112,7 +112,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 220 -180 0 0 {name=M6
-L=0.5u
+L=0.3u
 W=3u
 nf=1
 mult=1

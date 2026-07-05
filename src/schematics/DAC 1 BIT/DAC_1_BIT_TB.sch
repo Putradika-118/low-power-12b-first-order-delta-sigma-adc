@@ -9,7 +9,7 @@ N 140 -170 190 -170 {lab=0}
 N 140 -170 140 -160 {lab=0}
 N 110 -190 190 -190 {lab=VIN}
 N 75 -210 190 -210 {lab=#net1}
-N 45 -230 190 -230 {lab=#net2}
+N 45 -230 190 -230 {lab=VDD}
 N 75 -210 75 -145 {lab=#net1}
 N 110 -190 110 -95 {lab=VIN}
 N 170 -150 190 -150 {lab=0}
@@ -23,12 +23,19 @@ C {gnd.sym} 75 -85 0 0 {name=l2 lab=0}
 C {gnd.sym} 110 -35 0 0 {name=l3 lab=0}
 C {gnd.sym} 140 -160 0 0 {name=l4 lab=0}
 C {noconn.sym} 455 -190 1 0 {name=VOUT}
-C {devices/code_shown.sym} 490 -325 0 0 {name=NGSPICE only_toplevel=true
+C {devices/code_shown.sym} 490 -405 0 0 {name=NGSPICE only_toplevel=true
 value="
 .control
 save all
 tran 1n 5u
+let inst_pwr = -v(vdd) * i(v1)
+plot inst(pwr)
+meas tran avg_power AVG inst_pwr from=0 to=5u
+set color0=white
+set color1=black
 plot v(vin) v(out)
+plot v(out)
+plot v(vin)
 .endc
 
 "}
@@ -41,4 +48,5 @@ value="
 C {lab_pin.sym} 115 -190 1 0 {name=p2 sig_type=std_logic lab=VIN}
 C {gnd.sym} 170 -130 0 0 {name=l5 lab=0}
 C {lab_pin.sym} 435 -190 1 0 {name=p1 sig_type=std_logic lab=OUT}
-C {DAC_1_BIT.sym} 330 -190 0 0 {name=x1}
+C {DAC_1_BIT.sym} 180 -130 0 0 {name=x1}
+C {lab_pin.sym} 145 -230 1 0 {name=p3 sig_type=std_logic lab=VDD}
