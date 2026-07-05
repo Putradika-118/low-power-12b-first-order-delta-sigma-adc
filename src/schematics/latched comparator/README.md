@@ -8,20 +8,20 @@ In a sigma-delta ADC, the comparator does not directly produce the final multi-b
 
 <div align="center">
 
-| **Parameter** | **Value / Target** | **Unit** |
-|--------------|--------------------|----------|
-| Supply Voltage | 3.3 | V |
-| Comparator Resolution | 1 | bit |
-| Input Type | Differential | - |
-| Output Type | Digital Bitstream | - |
-| Input Common-Mode | 1.65 | V |
-| Target Input Bandwidth | 2 | MHz |
-| OSR | 20 | - |
-| Target Sampling Frequency | 80 | MHz |
-| Target SNDR | >65 | dB |
-| Target ENOB | >10 | bits |
-| Decision Time | < Clock Phase Duration | - |
-| Power Budget Contribution | Part of <3 mW ADC budget | - |
+| **Parameter** | **Value / Target** | **Unit** | **Notes** |
+| :--- | :--- | :--- | :--- |
+| **Electrical & DC Spec** | | | |
+| Supply Voltage (VDD) | 3.3 | V | Standard system supply |
+| Quantizer Resolution | 1 | bit | Single-bit output (High/Low) |
+| Input Type | Differential | - | Connects to the difference amplifier output |
+| Input Common-Mode | 1.65 | V | VDD/2, matching the analog front-end bias |
+| Output Type | Digital CMOS | - | Rail-to-rail bitstream (0V to 3.3V) |
+| **Dynamic & Transient Spec** | | | |
+| Clock Frequency ($f_s$) | 200 | kHz | Oversampling clock ($T_s = 5 \, \mu\text{s}$) |
+| Decision Time ($t_{pd}$) | < 100 | ns | Clock-to-Q propagation delay |
+| Input Offset Voltage ($V_{os}$) | < 15 | mV | Dynamic offset from transistor mismatch |
+| Kickback Noise | < 5 | mV | Transient noise fed back to the input nodes |
+| Power Consumption | << 3 | mW | Mainly dynamic switching power ($C \cdot V^2 \cdot f$) |
 
 </div>
 
