@@ -14,7 +14,7 @@ The integrator is implemented using a fully differential switched-capacitor topo
 |--------------|--------------------|----------|
 | Supply Voltage | 3.3 | V |
 | Integrator Type | Fully Differential Switched-Capacitor | - |
-| Ron Switch | < 1 | k$\Omega$ |
+| Ron Switch | < 1 | kΩ |
 | Settling Time | < 2.5 | us |
 | Charge TF Acc | > 99.9 | % |
 | Power Budget Contribution | Part of <3 mW ADC budget | - |
