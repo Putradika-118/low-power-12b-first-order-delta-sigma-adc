@@ -67,40 +67,29 @@ In the sigma-delta loop, this comparator output controls the 1-bit DAC feedback 
 
 The comparator acts as the 1-bit ADC inside the sigma-delta modulator. Since the quantizer only has two output levels, linearity is less complex than in a multi-bit ADC. However, timing, offset, and metastability are still important because comparator errors directly affect the feedback loop behavior and modulator stability.
 
-## Simulation
+## Simulation Result
 
 The comparator should be verified using DC, transient, and clocked decision simulations. The main purpose of the simulation is to confirm that the comparator can correctly resolve small differential input signals and produce a valid digital output within the available clock period.
 
-Recommended simulations include:
+### Testbench
 
 <div align="center">
 
-| **Simulation** | **Purpose** |
-|---------------|-------------|
-| DC Operating Point | Verify biasing and transistor operating regions |
-| Transient Comparator Test | Check output response for changing differential input |
-| Clocked Decision Test | Verify decision timing with sampling clock |
-| Propagation Delay | Measure delay from input crossing to output transition |
-| Input Offset Estimation | Estimate comparator input-referred offset |
-| Metastability Test | Check behavior for very small differential input |
-| Power Measurement | Estimate comparator power contribution |
-| Corner Simulation | Verify operation across process, voltage, and temperature |
+<img src="../../../docs/images/comparator_tb_sch.jpeg" alt="Comparator Testbench" width="800"/>
 
 </div>
 
-## Testbench Plan
+### Transient Response
 
 <div align="center">
 
-| **Testbench Condition** | **Expected Result** |
-|-------------------------|---------------------|
-| Differential sine input | Output bitstream follows input polarity |
-| Differential ramp/triangle input | Output toggles when input crosses zero differential |
-| Small differential step input | Comparator resolves correctly |
-| Clocked input near zero crossing | No excessive metastability or delayed decision |
-| PVT corners | Comparator remains functional |
+<img src="../../../docs/images/comparator_result.jpeg" alt="Comparator Simulation Result" width="800"/>
 
 </div>
+
+The comparator correctly resolves input polarity against the reference. In the zoomed view, the output goes high while the triangle is above 0 V (≈25–75 µs) and low while it is below 0 V, with transitions aligned to the reference crossings. The simulation result was correct and expected for HIGH/LOW response.
+
+The output peaks at 4.15 V, about 0.85 V above VDD. No driven node can exceed its own supply; this indicates clock feedthrough onto a high-impedance output, made visible by the 1 fF load.
 
 ## Verification Status
 
@@ -143,4 +132,4 @@ The comparator is a critical block in the sigma-delta ADC because it determines 
 
 The comparator must therefore be verified together with the switched-capacitor integrator and 1-bit DAC feedback block to ensure correct loop operation.
 
-**Last Updated: 4th July 2026**
+**Last Updated: 18th July 2026**

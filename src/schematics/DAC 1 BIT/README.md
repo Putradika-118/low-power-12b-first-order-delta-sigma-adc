@@ -101,7 +101,7 @@ To validate the performance against the target specifications, the Transmission 
     
 2.  **Switch On-Resistance (Figure 6):** To evaluate Rds when the switch is fully ON, the TG is enabled (PMOS gate to GND, NMOS gate to 3.3V). A constant ideal current source of **1 µA** is applied to the output node to draw current through the switch, and the input voltage is swept from 0V to 3.3V. Using Ohm's law directly in the simulation script (`let ron = (v(a) - v(b))/1u`), the measured peak resistance is **800 Ω**. This successfully meets the < 1000 Ω constraint, ensuring the DAC latency remains well within the required limit.
 
-## 5. Verification Status & Final Performance
+## 5. Verification Status & Simulation Review
 
 The DAC has been verified through transient (.tran) and DC operating point simulations. The testbench confirms that the output switches cleanly between the reference levels with latency and power metrics meeting the design constraints.
 
@@ -141,6 +141,9 @@ The DAC has been verified through transient (.tran) and DC operating point simul
   </table>
 </div>
 <h4 align="center" style="font-size:16px;">Figure 9. Simulation Result I-O (2)</h4>
+
+The 1-bit DAC was verified standalone using a 200kHz square wave input (0/3.3 V) with VREF+ = 3.3 V and VREF− = 0 V. As shown in Fig, the output is the logical inverse of the input: VIN = 0 selects VREF+, while VIN = 1 selects VREF−. This inversion is structural rather than a defect, arising from the internal inverter that steers the two transmission gates. The output reaches both supply rails cleanly with no threshold loss, confirming that the switches are implemented as proper complementary CMOS transmission gates rather than single-device pass transistors.
+Measured at the 50% crossing point, the propagation delay is approximately 6.07 ns, confirming that the DAC imposes no meaningful speed limitation on the modulator loop. Overshoot of about 100 mV is visible at the switching transitions, attributable to charge injection through the gate-drain overlap capacitance of the transmission gates.
 
 <div align="center">
 

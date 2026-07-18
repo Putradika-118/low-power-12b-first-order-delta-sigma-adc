@@ -1,10 +1,19 @@
 # Low-Power 12-Bit First-Order Delta-Sigma (ΣΔ) ADC — GF180MCU
 
 <p align="center">
-  <img src="https://img.shields.io/badge/SSCS%20Chipathon-2026-00629B" alt="Chipathon 2026"/>
-  <img src="https://img.shields.io/badge/Track-A%20·%20Foundational%20Building%20Blocks-0A4570" alt="Track A"/>
-  <img src="https://img.shields.io/badge/PDK-GF180MCU%20(gf180mcuD)-2E7D32" alt="GF180MCU"/>
-  <img src="https://img.shields.io/badge/Status-Schematic%20%2F%20Simulation%20Review-B26A00" alt="Status"/>
+  <a href="https://github.com/sscs-ose/sscs-chipathon-2026"><img src="https://img.shields.io/badge/SSCS%20Chipathon-2026-00629B" alt="Chipathon 2026"/></a>
+  <a href="https://github.com/sscs-ose/sscs-chipathon-2026/issues/156"><img src="https://img.shields.io/badge/Track-A%20·%20Foundational%20Building%20Blocks-0A4570" alt="Track A"/></a>
+  <a href="https://github.com/google/gf180mcu-pdk"><img src="https://img.shields.io/badge/PDK-GF180MCU%20(gf180mcuD)-2E7D32" alt="GF180MCU"/></a>
+  <a href="https://docs.google.com/spreadsheets/d/1vq9HZ6a_NoaJxv5bcDqT_2UIH9_rgmeoz8I_xhGFr9E/edit?gid=690406390#gid=690406390"><img src="https://img.shields.io/badge/Status-Schematic%20%2F%20Simulation%20Review-B26A00" alt="Status"/></a>
+</p>
+
+<p align="center">
+  <a href="src/schematics/FULLY%20DIFFERENTIAL%20AMPLIFIER"><img src="https://img.shields.io/badge/OTA-555555" alt="Fully Differential Amplifier"/></a>
+  <a href="src/schematics/INTEGRATOR%20FIRST%20ORDER"><img src="https://img.shields.io/badge/SC%20Integrator-555555" alt="SC Integrator"/></a>
+  <a href="src/schematics/latched%20comparator"><img src="https://img.shields.io/badge/Comparator-555555" alt="Latched Comparator"/></a>
+  <a href="src/schematics/DAC%201%20BIT"><img src="https://img.shields.io/badge/1--bit%20DAC-555555" alt="1-bit DAC"/></a>
+  <a href="src/filter_decimation"><img src="https://img.shields.io/badge/CIC%20Filter-555555" alt="CIC Decimation Filter"/></a>
+  <a href="src/schematics/INTEGRATION"><img src="https://img.shields.io/badge/Integration-555555" alt="Integration"/></a>
 </p>
 
 **Team A52 — ARNSChips** · Bandung Institute of Technology
@@ -90,11 +99,11 @@ The single-bit architecture is chosen because its two-level feedback DAC is **in
 
 </div>
 
-*Pin types/directions follow the team [pin-requirement sheet](https://docs.google.com/spreadsheets/d/1fF8oxbtLJM7w2VgKkdR7hZ5m95WEj2S6m3JAmWGvgTE/edit?gid=0#gid=0); clock pins are typed “Analog” because they directly drive the analog switch network. Power/clock domains: single 3.3 V level (no level shifters), AVDD/DVDD separated at the padring for isolation; fs = 12.288 MHz and the on-chip synchronous ÷256 domain (48 kHz) are declared in the SDC.*
+*Pin types/directions follow the team [pin-requirement sheet](https://docs.google.com/spreadsheets/d/1fF8oxbtLJM7w2VgKkdR7hZ5m95WEj2S6m3JAmWGvgTE/edit?gid=0#gid=0); clock pins are typed "Analog" because they directly drive the analog switch network. Power/clock domains: single 3.3 V level (no level shifters), AVDD/DVDD separated at the padring for isolation; fs = 12.288 MHz and the on-chip synchronous ÷256 domain (48 kHz) are declared in the SDC.*
 
 ## Component Specification
 
-Each block lives in its own folder with the schematic (`.sch`), symbol (`.sym`), testbench, and a **progress-log README** containing target specs, design decisions, simulation methodology, and results:
+Each block lives in its own folder with the schematic (`.sch`), symbol (`.sym`), testbench, and a **progress-log README** containing target specs, design decisions, simulation methodology, and results. (Detailed Specification, tabulated in Folder*)
 
 <div align="center">
 
@@ -125,7 +134,7 @@ Each block lives in its own folder with the schematic (`.sch`), symbol (`.sym`),
 | Document | Link |
 |---|---|
 | 📑 Proposal slides | [Google Slides](https://docs.google.com/presentation/d/1M62LnVBDNp1b1XSa8lMKlhMRepqvPYP2gsCC-x1C1OA/edit?usp=sharing) |
-| 📊 Schematic Review slides | [Google Slides](https://docs.google.com/presentation/d/187ljcCqn_6bcYCcDN7YLW98l-vFT65xJHFSj8pB5ziU/edit?usp=sharing) |
+| 📊 Schematic & Simulation Review slides | [Google Slides](https://docs.google.com/presentation/d/187ljcCqn_6bcYCcDN7YLW98l-vFT65xJHFSj8pB5ziU/edit?slide=id.g3f937cb7e6d_0_61#slide=id.g3f937cb7e6d_0_61) |
 | 🎬 Schematic Review video | [Google Drive](https://drive.google.com/file/d/1ZalpSG7483_RGrQqDSEjqazJp0OSJbgO/view?usp=drivesdk) |
 | 📈 Progress tracker (live) | [Google Sheets](https://docs.google.com/spreadsheets/d/1vq9HZ6a_NoaJxv5bcDqT_2UIH9_rgmeoz8I_xhGFr9E/edit?gid=690406390#gid=690406390) |
 | 🧾 Team project issue | [sscs-chipathon-2026 #156](https://github.com/sscs-ose/sscs-chipathon-2026/issues/156) |
