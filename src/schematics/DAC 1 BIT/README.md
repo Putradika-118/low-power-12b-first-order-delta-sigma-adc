@@ -101,7 +101,7 @@ To validate the performance against the target specifications, the Transmission 
     
 2.  **Switch On-Resistance (Figure 6):** To evaluate Rds when the switch is fully ON, the TG is enabled (PMOS gate to GND, NMOS gate to 3.3V). A constant ideal current source of **1 µA** is applied to the output node to draw current through the switch, and the input voltage is swept from 0V to 3.3V. Using Ohm's law directly in the simulation script (`let ron = (v(a) - v(b))/1u`), the measured peak resistance is **800 Ω**. This successfully meets the < 1000 Ω constraint, ensuring the DAC latency remains well within the required limit.
 
-## 5. Verification Status & Final Performance
+## 5. Verification Status & Simulation Review
 
 The DAC has been verified through transient (.tran) and DC operating point simulations. The testbench confirms that the output switches cleanly between the reference levels with latency and power metrics meeting the design constraints.
 
