@@ -81,19 +81,8 @@ N 270 230 300 230 {lab=VSS}
 N 450 230 480 230 {lab=VSS}
 N -200 240 -170 240 {lab=VSS}
 N -370 240 -340 240 {lab=VSS}
-N -80 80 -50 80 {lab=#net1}
-N -80 60 -80 80 {lab=#net1}
-N -80 50 -80 60 {lab=#net1}
-N -90 50 -80 50 {lab=#net1}
-N 140 100 180 100 {lab=#net2}
-N -300 50 -150 50 {lab=#net6}
-N -300 50 -300 130 {lab=#net6}
-N -340 190 -300 190 {lab=Vom}
-N 240 100 240 130 {lab=#net7}
-N 240 130 390 130 {lab=#net7}
-N 390 190 450 190 {lab=Vop}
 C {symbols/pfet_03v3.sym} 280 90 0 0 {name=M5
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -107,7 +96,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -30 -30 0 1 {name=M2
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -121,7 +110,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -70 150 0 0 {name=M8
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -135,7 +124,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 160 150 0 1 {name=M7
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -149,7 +138,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 120 -30 0 0 {name=M1
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -163,7 +152,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -180 90 0 1 {name=M6
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -177,7 +166,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} -320 30 0 1 {name=M4
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -191,7 +180,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 430 30 0 0 {name=M3
-L=\{Kall\}
+L=\{Kp\}
 W=\{Wp\}
 nf=1
 m=1
@@ -205,7 +194,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 120 300 0 0 {name=M9
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -219,7 +208,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -30 300 0 1 {name=M10
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -233,7 +222,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 430 230 0 0 {name=M11
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -247,7 +236,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 320 230 0 1 {name=M13
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -261,7 +250,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -220 240 0 0 {name=M12
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -275,7 +264,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} -320 240 0 1 {name=M14
-L=\{Kall\}
+L=\{Kn\}
 W=\{Wn\}
 nf=1
 m=1
@@ -310,23 +299,3 @@ C {lab_pin.sym} 480 230 0 1 {name=p19 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} -170 240 0 1 {name=p20 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} -20 150 0 1 {name=p21 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 110 150 0 0 {name=p22 sig_type=std_logic lab=VSS}
-C {res.sym} -120 50 1 0 {name=R1
-value=530
-footprint=1206
-device=resistor
-m=1}
-C {res.sym} 210 100 1 0 {name=R2
-value=530
-footprint=1206
-device=resistor
-m=1}
-C {capa.sym} -300 160 0 0 {name=C1
-m=1
-value=0.05p
-footprint=1206
-device="ceramic capacitor"}
-C {capa.sym} 390 160 0 0 {name=C2
-m=1
-value=0.05p
-footprint=1206
-device="ceramic capacitor"}
