@@ -21,7 +21,7 @@ C {gnd.sym} 180 -160 0 0 {name=l5 lab=0}
 C {noconn.sym} 390 -200 2 0 {name=l6}
 C {lab_pin.sym} 370 -200 1 0 {name=p1 sig_type=std_logic lab=OUT}
 C {lab_pin.sym} 140 -220 1 0 {name=p2 sig_type=std_logic lab=IN}
-C {devices/code_shown.sym} 430 -375 0 0 {name=NGSPICE only_toplevel=true
+C {devices/code_shown.sym} 420 -385 0 0 {name=NGSPICE only_toplevel=true
 value="
 .param Wp=20u Wn=10u Ws=40u Ls=10u
 .control
@@ -49,7 +49,7 @@ C {COMPARATOR_SD.sym} 150 -60 0 0 {name=x1}
 C {lab_pin.sym} 100 -240 1 0 {name=p3 sig_type=std_logic lab=VDD}
 C {capa.sym} 370 -170 0 0 {name=C1
 m=1
-value=1p
+value=1f
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 370 -140 0 0 {name=l7 lab=0}
