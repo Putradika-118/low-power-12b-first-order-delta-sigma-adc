@@ -15,16 +15,16 @@ The amplifier is designed using a fully differential topology to improve noise i
 | Output Type | Fully Differential | - |
 | Input Common-Mode | 1.65 | V |
 | Output Common-Mode | 1.65 | V |
-| Target Input Bandwidth | >100 | kHz |
-| OSR | 256 | - |
-| Target Sampling Frequency | 12.288 | MHz |
+| Target Input Bandwidth | 2 | MHz |
+| OSR | 20 | - |
+| Target Sampling Frequency | 80 | MHz |
 | Target SNDR | >65 | dB |
 | Target ENOB | >10 | bits |
 | DC Gain | >60 | dB |
-| Unity-Gain Frequency | >100 | MHz |
+| Unity-Gain Frequency | >400 | MHz |
 | Phase Margin | >55 | degree |
 | Load Capacitance | 0.5 | pF |
-| Power Consumption | < 3 | mW |
+| Power Budget Contribution | Part of <3 mW ADC budget | - |
 
 </div>
 
@@ -199,7 +199,7 @@ The testbench uses a 3.3 V supply and a 1.65 V input common-mode voltage. The in
 | gm values checked | Match gm/ID target | To be verified |
 | Output common-mode verified | Around 1.65 V | Verified in initial OP |
 | DC gain measured | >60 dB | To be verified |
-| UGF measured | >100 MHz | To be verified |
+| UGF measured | >400 MHz | To be verified |
 | Phase margin analyzed | >55° | To be verified |
 | Transient settling checked | Within clock phase | To be verified |
 | Noise considered | Required | To be verified |

@@ -17,8 +17,8 @@ In a sigma-delta ADC, the comparator does not directly produce the final multi-b
 | Input Common-Mode | 1.65 | V | VDD/2, matching the analog front-end bias |
 | Output Type | Digital CMOS | - | Rail-to-rail bitstream (0V to 3.3V) |
 | **Dynamic & Transient Spec** | | | |
-| Clock Frequency ($f_s$) | 200 | kHz | Oversampling clock ($T_s = 5 \, \mu\text{s}$) |
-| Decision Time ($t_{pd}$) | < 100 | ns | Clock-to-Q propagation delay |
+| Clock Frequency ($f_s$) | 12.288 | MHz | Oversampling clock ($T_s = 81.38 \, \text{ns}$) |
+| Decision Time ($t_{pd}$) | < 50 | ns | Clock-to-Q propagation delay |
 | Input Offset Voltage ($V_{os}$) | < 15 | mV | Dynamic offset from transistor mismatch |
 | Kickback Noise | < 5 | mV | Transient noise fed back to the input nodes |
 | Power Consumption | << 3 | mW | Mainly dynamic switching power ($C \cdot V^2 \cdot f$) |
@@ -127,7 +127,7 @@ Recommended simulations include:
 | Supply Voltage | 3.3 | V |
 | Comparator Resolution | 1 | bit |
 | Input Common-Mode | 1.65 | V |
-| Sampling Frequency | 80 | MHz |
+| Sampling Frequency | 12.288 | MHz |
 | Output Logic Low | 0 | V |
 | Output Logic High | 3.3 | V |
 | Propagation Delay | To be simulated | s |

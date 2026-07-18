@@ -5,37 +5,42 @@ V {}
 S {}
 F {}
 E {}
-N -210 -45 70 -45 {lab=#net1}
-N -80 -10 70 -10 {lab=#net2}
-N -210 15 -210 25 {lab=GND}
-N -80 50 -80 65 {lab=GND}
-N 40 10 40 50 {lab=GND}
-N 40 10 70 10 {lab=GND}
-N -107.5 -87.5 -107.5 -77.5 {lab=GND}
-N 30 -65 70 -65 {lab=VDD}
-N -107.5 -157.5 -107.5 -147.5 {lab=VDD}
-N 110 7.5 110 45 {lab=vbiasn}
-N 180 110 180 120 {lab=GND}
-N 110 105 110 115 {lab=GND}
-N 171.25 -42.5 205 -42.5 {lab=vop}
-N 172.5 -18.75 206.25 -18.75 {lab=vom}
-N 142.5 50 180 50 {lab=vbiasp}
-N 142.5 -12.5 142.5 50 {lab=vbiasp}
-C {vsource.sym} -210 -15 0 0 {name=V1 value="dc \{VCM\} ac 0.5 180" savecurrent=false}
-C {gnd.sym} -210 25 0 0 {name=l1 lab=GND}
-C {vsource.sym} -80 20 0 0 {name=V2 value="dc \{VCM\} ac 0.5 0" savecurrent=false}
-C {gnd.sym} -80 65 0 0 {name=l2 lab=GND}
-C {gnd.sym} 40 50 0 0 {name=l3 lab=GND}
-C {vsource.sym} -107.5 -117.5 0 0 {name=V3 value="dc \{VDDVAL\}" savecurrent=false}
-C {gnd.sym} -107.5 -77.5 0 0 {name=l4 lab=GND}
-C {vdd.sym} -107.5 -157.5 0 0 {name=l5 lab=VDD}
-C {vdd.sym} 30 -65 0 0 {name=l6 lab=VDD}
-C {vsource.sym} 110 75 0 0 {name=V4 value="dc \{VBIASN_VAL\}" savecurrent=false}
-C {vsource.sym} 180 80 0 0 {name=V5 value="dc \{VBIASP_VAL\}" savecurrent=false}
-C {gnd.sym} 110 115 0 0 {name=l7 lab=GND}
-C {gnd.sym} 180 120 0 0 {name=l8 lab=GND}
-C {noconn.sym} 205 -42.5 0 1 {name=l9}
-C {noconn.sym} 206.25 -18.75 0 1 {name=l10}
+N -70 -45 210 -45 {lab=#net1}
+N 60 -10 210 -10 {lab=#net2}
+N 180 10 180 50 {lab=GND}
+N 180 10 210 10 {lab=GND}
+N 32.5 -87.5 32.5 -77.5 {lab=GND}
+N 170 -65 210 -65 {lab=VDD}
+N 32.5 -157.5 32.5 -147.5 {lab=VDD}
+N 250 7.5 250 45 {lab=vbiasn}
+N 320 110 320 120 {lab=GND}
+N 250 105 250 115 {lab=GND}
+N 311.25 -42.5 345 -42.5 {lab=vop}
+N 312.5 -18.75 346.25 -18.75 {lab=vom}
+N 282.5 50 320 50 {lab=vbiasp}
+N 282.5 -12.5 282.5 50 {lab=vbiasp}
+N 590 105 590 115 {lab=GND}
+N 590 260 590 275 {lab=GND}
+N 60 175 60 185 {lab=GND}
+N -70 175 -70 185 {lab=GND}
+N 60 -10 60 -5 {lab=#net2}
+N 60 -5 60 25 {lab=#net2}
+N 60 85 60 115 {lab=#net2}
+N -70 -45 -70 25 {lab=#net1}
+N -70 85 -70 115 {lab=#net1}
+N -70 25 -70 85 {lab=#net1}
+N 60 25 60 85 {lab=#net2}
+C {gnd.sym} 180 50 0 0 {name=l3 lab=GND}
+C {vsource.sym} 32.5 -117.5 0 0 {name=V3 value="dc \{VDDVAL\}" savecurrent=false}
+C {gnd.sym} 32.5 -77.5 0 0 {name=l4 lab=GND}
+C {vdd.sym} 32.5 -157.5 0 0 {name=l5 lab=VDD}
+C {vdd.sym} 170 -65 0 0 {name=l6 lab=VDD}
+C {vsource.sym} 250 75 0 0 {name=V4 value="dc \{VBIASN_VAL\}" savecurrent=false}
+C {vsource.sym} 320 80 0 0 {name=V5 value="dc \{VBIASP_VAL\}" savecurrent=false}
+C {gnd.sym} 250 115 0 0 {name=l7 lab=GND}
+C {gnd.sym} 320 120 0 0 {name=l8 lab=GND}
+C {noconn.sym} 345 -42.5 0 1 {name=l9}
+C {noconn.sym} 346.25 -18.75 0 1 {name=l10}
 C {devices/code_shown.sym} -1268.75 -793.75 0 0 {name=NGSPICE only_toplevel=true
 value="
 * =====================================================
@@ -52,12 +57,9 @@ value="
 .param VBIASN_VAL=0.65
 .param VBIASP_VAL=2.5
 .param CL=0.5p
-.param GCMFB=1m
-.param Wp=25u
-.param Kp=1.25u
-.param Wn=12.5u
-.param Kn=1.25u
-
+.param Wp=12u
+.param Wn=6u
+.param Kall=1.28u
 .option reltol=1e-4 abstol=1e-12 vntol=1e-6 temp=27
 
 * =====================================================
@@ -71,13 +73,21 @@ RLEAKM Vom 0 1T
 * =====================================================
 * 4. IDEAL CMFB
 * =====================================================
-Bcmop Vop 0 I=\{GCMFB*(((v(Vop)+v(Vom))/2)-VCM)\}
-Bcmom Vom 0 I=\{GCMFB*(((v(Vop)+v(Vom))/2)-VCM)\}
+.param Gcm = 1m
+Bcm_sense vcm_sns 0 V=\{ (v(Vop)+v(Vom))/2 \}
+Gcmfb_p  0 Vop  vcm_sns vcm_ref  \{Gcm\}
+Gcmfb_m  0 Vom  vcm_sns vcm_ref  \{Gcm\}
+Vcm_ref  vcm_ref 0  DC \{VCM\}
 
 * =====================================================
 * 5. CONTROL BLOCK (ANALYSIS)
 * =====================================================
 .control
+et color0=white
+set color1=black
+set color2=red     $ Mengubah warna garis gelombang 2
+set color3=blue    $ Mengubah warna garis gelombang 1
+set xbrushwidth=2  $ Menebalkan garis gelombang agar jelas untuk laporan
 * Wajib menyimpan parameter internal sebelum analisis jalan
 save all
 save @m.x1.xm7.m0[id] @m.x1.xm7.m0[gm] @m.x1.xm7.m0[gds] @m.x1.xm7.m0[vgs] @m.x1.xm7.m0[vds] @m.x1.xm7.m0[vdsat]
@@ -134,6 +144,8 @@ let intrinsic_gain = gm_m7 / gds_m7
 
 echo --- Output Voltages ---
 print v(VDD) v(Vbiasp) v(Vbiasn) v(Vop) v(Vom) vocm vod
+let pwr = -i(V3)*v(VDD)
+print pwr
 
 echo --- XM7 Parameters (Input Pair) ---
 print id_m7 gm_m7 gds_m7 vgs_m7 vds_m7 vdsat_m7 gm_id intrinsic_gain
@@ -141,47 +153,33 @@ print id_m7 gm_m7 gds_m7 vgs_m7 vds_m7 vdsat_m7 gm_id intrinsic_gain
 * Simpan khusus hasil DC agar raw file rapi
 write ota_op.raw v(Vop) v(Vom) vocm vod id_m7 gm_m7 gds_m7 vgs_m7 vds_m7 vdsat_m7 gm_id intrinsic_gain
 
-* -----------------------------------------------------
-* AC ANALYSIS (Bode Plot)
-* -----------------------------------------------------
-echo ===== AC ANALYSIS =====
-ac dec 100 1 10G
-
-let vout_diff = v(Vop)-v(Vom)
-let gain_db = db(vout_diff)
-let phase_deg = 180/PI * ph(vout_diff)
-
-plot db(vout_diff)
-plot phase_deg
-
-write ota_ac.raw gain_db phase_deg vout_diff
 
 * -----------------------------------------------------
 * TRANSIENT ANALYSIS
 * -----------------------------------------------------
 echo ===== TRANSIENT =====
-tran 0.5n 5u
-
+tran 10n 2m
 let vout_diff_tran = v(Vop)-v(Vom)
+plot vout_diff_tran
+plot v(Vop) v(Vom)
+
 write ota_tran.raw v(Vop) v(Vom) vout_diff_tran
-
-* -----------------------------------------------------
-* NOISE ANALYSIS
-* -----------------------------------------------------
-echo ===== INPUT REFERRED NOISE =====
-noise v(Vop, Vom) V1 dec 20 1k 100Meg
-
-* Set plot ke noise1 agar onoise_spectrum bisa disimpan dengan benar
-setplot noise1
-write ota_noise.raw onoise_spectrum inoise_spectrum
-
 echo ==========================================
 echo FINISHED! BUKA .RAW FILE DI GAW
 echo ==========================================
 .endc
 "}
-C {fullydiffamp.sym} 130 60 0 0 {name=x1}
-C {lab_wire.sym} 190 -42.5 0 1 {name=p1 sig_type=std_logic lab=vop}
-C {lab_wire.sym} 190 -18.75 0 1 {name=p2 sig_type=std_logic lab=vom}
-C {lab_wire.sym} 142.5 22.5 0 1 {name=p3 sig_type=std_logic lab=vbiasp}
-C {lab_wire.sym} 110 37.5 0 1 {name=p4 sig_type=std_logic lab=vbiasn}
+C {lab_wire.sym} 330 -42.5 0 1 {name=p1 sig_type=std_logic lab=vop}
+C {lab_wire.sym} 330 -18.75 0 1 {name=p2 sig_type=std_logic lab=vom}
+C {lab_wire.sym} 282.5 22.5 0 1 {name=p3 sig_type=std_logic lab=vbiasp}
+C {lab_wire.sym} 250 37.5 0 1 {name=p4 sig_type=std_logic lab=vbiasn}
+C {vsource.sym} 590 75 0 0 {name=V1 value="dc \{VCM\} ac 0.5 180" savecurrent=false}
+C {gnd.sym} 590 115 0 0 {name=l1 lab=GND}
+C {vsource.sym} 590 230 0 0 {name=V2 value="dc \{VCM\} ac 0.5 0" savecurrent=false}
+C {gnd.sym} 590 275 0 0 {name=l2 lab=GND}
+C {gnd.sym} 60 185 0 0 {name=l11 lab=GND}
+C {vsource.sym} -70 145 0 0 {name=V7 value="PULSE(1.70 1.60 40n 10n 10n 80n 160n)" savecurrent=false}
+C {gnd.sym} -70 185 0 0 {name=l12 lab=GND
+value="PULSE(20u -20u 0 1n 1n 100u 200u)"}
+C {vsource.sym} 60 145 0 0 {name=V6 value="PULSE(1.60 1.70 40n 10n 10n 80n 160n)" savecurrent=false}
+C {low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 270 60 0 0 {name=x1}

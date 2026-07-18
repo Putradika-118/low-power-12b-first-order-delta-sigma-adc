@@ -15,7 +15,7 @@ The integrator is implemented using a fully differential switched-capacitor topo
 | Supply Voltage | 3.3 | V |
 | Integrator Type | Fully Differential Switched-Capacitor | - |
 | Ron Switch | < 1 | kΩ |
-| Settling Time | < 2.5 | us |
+| Settling Time | < 50 | ns |
 | Charge TF Acc | > 99.9 | % |
 | Power Budget Contribution | Part of <3 mW ADC budget | - |
 
@@ -85,7 +85,7 @@ where C<sub>s</sub> is the sampling capacitor, C<sub>f</sub> is the feedback cap
 | Effective Integrator Gain | 1 | - |
 | Clock Phase 1, Φ1 | Non-overlapping | - |
 | Clock Phase 2, Φ2 | Non-overlapping | - |
-| Sampling Frequency | 80 | MHz |
+| Sampling Frequency | 12.288 | MHz |
 | Effective Settling Time | To be simulated | s |
 
 </div>
@@ -99,7 +99,7 @@ The integrator performance strongly depends on the fully differential amplifier.
 | **OTA Parameter** | **Target** | **Unit** |
 |------------------|-----------:|----------|
 | DC Gain | >60 | dB |
-| Unity-Gain Frequency | >400 | MHz |
+| Unity-Gain Frequency | >100 | MHz |
 | Phase Margin | >55 | degree |
 | Output Common-Mode | 1.65 | V |
 | Power Consumption | Part of <3 mW ADC budget | - |
@@ -181,7 +181,7 @@ Recommended simulations include:
 | Integrator Type | Fully Differential Switched-Capacitor | - |
 | Input Common-Mode | 1.65 | V |
 | Output Common-Mode | 1.65 | V |
-| Sampling Frequency | 80 | MHz |
+| Sampling Frequency | 12.288 | MHz |
 | C<sub>s</sub>/C<sub>f</sub> Ratio | 1 | - |
 | OTA DC Gain | To be simulated | dB |
 | OTA UGF | To be simulated | Hz |
