@@ -23,10 +23,10 @@ C {lab_pin.sym} 370 -200 1 0 {name=p1 sig_type=std_logic lab=OUT}
 C {lab_pin.sym} 140 -220 1 0 {name=p2 sig_type=std_logic lab=IN}
 C {devices/code_shown.sym} 420 -385 0 0 {name=NGSPICE only_toplevel=true
 value="
-.param Wp=20u Wn=10u Ws=40u Ls=10u
+.param Wp=50u Wn=2u Ws=100u Ls=10u
 .control
 save all
-tran 100n 500u
+tran 1u 1m
 set color0=white
 set color1=black
 let inst_pwr = -v(vdd) * i(v1)
@@ -45,7 +45,7 @@ C {vsource.sym} 100 -190 0 0 {name=V2 value="PULSE(-1 1 0 50u 50u 0 100u)" savec
 C {vsource.sym} 160 -90 0 0 {name=V4 value="PULSE(0 3.3 0 1n 1n 2.5u 5u)" savecurrent=false}
 C {vsource.sym} 40 -210 0 0 {name=V1 value=3.3 savecurrent=false}
 C {gnd.sym} 40 -180 0 0 {name=l1 lab=0}
-C {COMPARATOR_SD.sym} 150 -60 0 0 {name=x1}
+C {COMPARATOR_SD.sym} 160 -40 0 0 {name=x1}
 C {lab_pin.sym} 100 -240 1 0 {name=p3 sig_type=std_logic lab=VDD}
 C {capa.sym} 370 -170 0 0 {name=C1
 m=1
