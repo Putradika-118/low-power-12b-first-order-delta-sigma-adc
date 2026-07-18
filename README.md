@@ -134,7 +134,7 @@ Each block lives in its own folder with the schematic (`.sch`), symbol (`.sym`),
 | Document | Link |
 |---|---|
 | 📑 Proposal slides | [Google Slides](https://docs.google.com/presentation/d/1M62LnVBDNp1b1XSa8lMKlhMRepqvPYP2gsCC-x1C1OA/edit?usp=sharing) |
-| 📊 Schematic & Simulation Review slides | [Google Slides](https://docs.google.com/presentation/d/187ljcCqn_6bcYCcDN7YLW98l-vFT65xJHFSj8pB5ziU/edit?slide=id.g3f937cb7e6d_0_61#slide=id.g3f937cb7e6d_0_61) |
+| 📊 Schematic & Simulation Review slides | [Google Slides](https://docs.google.com/presentation/d/187ljcCqn_6bcYCcDN7YLW98l-vFT65xJHFSj8pB5ziU/edit?slide=id.g3ed01995daf_2_93#slide=id.g3ed01995daf_2_93) |
 | 🎬 Schematic Review video | [Google Drive](https://drive.google.com/file/d/1ZalpSG7483_RGrQqDSEjqazJp0OSJbgO/view?usp=drivesdk) |
 | 📈 Progress tracker (live) | [Google Sheets](https://docs.google.com/spreadsheets/d/1vq9HZ6a_NoaJxv5bcDqT_2UIH9_rgmeoz8I_xhGFr9E/edit?gid=690406390#gid=690406390) |
 | 🧾 Team project issue | [sscs-chipathon-2026 #156](https://github.com/sscs-ose/sscs-chipathon-2026/issues/156) |
