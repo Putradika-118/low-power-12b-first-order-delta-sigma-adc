@@ -18,17 +18,18 @@ N 420 -190 460 -190 {lab=OUT}
 C {vsource.sym} 45 -200 0 0 {name=V1 value=3.3 savecurrent=false}
 C {gnd.sym} 45 -170 0 0 {name=l1 lab=0}
 C {vsource.sym} 75 -115 0 0 {name=V2 value=3.3 savecurrent=false}
-C {vsource.sym} 110 -65 0 0 {name=V3 value="PULSE(0 3.3 0 1n 1n 0.5u 1u)" savecurrent=false}
+C {vsource.sym} 110 -65 0 0 {name=V3 value="SINE(0 5 1k)" savecurrent=false}
 C {gnd.sym} 75 -85 0 0 {name=l2 lab=0}
 C {gnd.sym} 110 -35 0 0 {name=l3 lab=0}
 C {gnd.sym} 140 -160 0 0 {name=l4 lab=0}
 C {noconn.sym} 455 -190 1 0 {name=VOUT}
-C {devices/code_shown.sym} 490 -405 0 0 {name=NGSPICE only_toplevel=true
+C {devices/code_shown.sym} 480 -455 0 0 {name=NGSPICE only_toplevel=true
 value="
+.param Wsp=3u Wsn=1.5u Ld=0.3u Wdp=2u Wdn=1u
 .control
 save all
-tran 1n 5u
-let inst_pwr = -v(vdd) * i(v1)
+tran 100n 3m
+let inst_pwr = v(vdd) * i(v1)
 plot inst(pwr)
 meas tran avg_power AVG inst_pwr from=0 to=5u
 set color0=white

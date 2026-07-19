@@ -90,12 +90,8 @@ The single-bit architecture is chosen because its two-level feedback DAC is **in
 | 7 | IN+ | Analog | Input | Differential analog input, positive (centered at 1.65 V CM) |
 | 8 | IN− | Analog | Input | Differential analog input, negative |
 | 9 | OUT | Digital | Output | 1-bit ΣΔ PDM bitstream (12-bit PCM available from on-chip CIC) |
-| 10 | CLK1 | Analog | Input | Sampling-phase clock Φ1 (non-overlapping with Φ2), 12.288 MHz domain |
-| 11 | CLK2 | Analog | Input | Integration-phase clock Φ2 (non-overlapping with Φ1) |
-| 12 | CLK2B | Analog | Input | Complement of Φ2 for transmission-gate switches |
-| 13 | RST | Digital | Input | Reset for the digital decimation filter (active-low inside RTL) |
-| 14 | VREF+ | Analog | Input | DAC reference high, 3.3 V nominal (decoupled off-chip) |
-| 15 | VREF− | Analog | Input | DAC reference low, 0 V nominal |
+| 10 | CLK | Analog | Input | Sampling-phase clock Φ1 (non-overlapping with Φ2), 12.288 MHz domain |
+| 11 | RST | Digital | Input | Reset for the digital decimation filter (active-low inside RTL) |
 
 </div>
 
