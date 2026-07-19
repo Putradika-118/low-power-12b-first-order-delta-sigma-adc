@@ -99,8 +99,8 @@ N 400 420 420 420 {lab=VSS}
 N 100 -80 120 -80 {lab=VDD}
 N 120 -140 120 -80 {lab=VDD}
 N 100 -140 120 -140 {lab=VDD}
-N 0 -80 60 -80 {lab=VSS}
-N -50 -80 0 -80 {lab=VSS}
+N 0 -80 60 -80 {lab=#net8}
+N -50 -80 0 -80 {lab=#net8}
 C {symbols/pfet_03v3.sym} -20 30 0 0 {name=M1
 L=Ls
 W=Wp
@@ -318,4 +318,4 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {lab_pin.sym} -40 -80 3 0 {name=p16 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} -30 -80 3 0 {name=p16 sig_type=std_logic lab=VSS}
