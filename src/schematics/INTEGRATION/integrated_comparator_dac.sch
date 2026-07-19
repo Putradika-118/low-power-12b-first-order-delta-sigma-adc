@@ -50,7 +50,7 @@ C {vsource.sym} 510 -790 0 0 {name=V5 value=0 savecurrent=false}
 C {gnd.sym} 450 -810 0 0 {name=l9 lab=0}
 C {devices/code_shown.sym} 620 -705 0 0 {name=NGSPICE only_toplevel=true
 value="
-.param Wp=5u Wn=2.5u Ws=2*Wp Ls=1u
+.param Wp=5u Wn=2.5u Ws=2*Wp Ls=0.3u
 .param Wsp=3u Wsn=1.5u Ld=0.35u Wdp=1u Wdn=1u
 .control
 save all
