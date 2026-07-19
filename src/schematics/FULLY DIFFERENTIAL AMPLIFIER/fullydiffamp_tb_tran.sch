@@ -5,43 +5,51 @@ V {}
 S {}
 F {}
 E {}
-N -70 -45 210 -45 {lab=#net1}
-N 60 -10 210 -10 {lab=#net2}
+N -70 -45 210 -45 {lab=vop}
+N 60 -10 210 -10 {lab=vom}
 N 180 10 180 50 {lab=GND}
 N 180 10 210 10 {lab=GND}
 N 32.5 -87.5 32.5 -77.5 {lab=GND}
 N 170 -65 210 -65 {lab=VDD}
 N 32.5 -157.5 32.5 -147.5 {lab=VDD}
 N 250 7.5 250 45 {lab=vbiasn}
-N 320 110 320 120 {lab=GND}
+N 350 110 400 110 {lab=GND}
 N 250 105 250 115 {lab=GND}
 N 311.25 -42.5 345 -42.5 {lab=vop}
 N 312.5 -18.75 346.25 -18.75 {lab=vom}
-N 282.5 50 320 50 {lab=vbiasp}
+N 282.5 50 400 50 {lab=vbiasp}
 N 282.5 -12.5 282.5 50 {lab=vbiasp}
 N 590 105 590 115 {lab=GND}
 N 590 260 590 275 {lab=GND}
 N 60 175 60 185 {lab=GND}
-N -70 175 -70 185 {lab=GND}
-N 60 -10 60 -5 {lab=#net2}
-N 60 -5 60 25 {lab=#net2}
-N 60 85 60 115 {lab=#net2}
-N -70 -45 -70 25 {lab=#net1}
-N -70 85 -70 115 {lab=#net1}
-N -70 25 -70 85 {lab=#net1}
-N 60 25 60 85 {lab=#net2}
+N -200 165 -200 185 {lab=GND}
+N 60 -10 60 -5 {lab=vom}
+N 60 -5 60 25 {lab=vom}
+N 60 85 60 115 {lab=vom}
+N -200 45 -200 105 {lab=vop}
+N 60 25 60 85 {lab=vom}
+N -150 -45 -70 -45 {lab=vop}
+N -200 -45 -150 -45 {lab=vop}
+N -200 -45 -200 45 {lab=vop}
+N 346.25 -18.75 540 -20 {lab=vom}
+N 540 -20 540 265 {lab=vom}
+N 40 265 540 265 {lab=vom}
+N 40 -10 40 265 {lab=vom}
+N 40 -10 60 -10 {lab=vom}
+N 345 -42.5 422.5 -42.5 {lab=vop}
+N 422.5 -112.5 422.5 -42.5 {lab=vop}
+N 135 -112.5 422.5 -112.5 {lab=vop}
+N 135 -112.5 135 -45 {lab=vop}
 C {gnd.sym} 180 50 0 0 {name=l3 lab=GND}
 C {vsource.sym} 32.5 -117.5 0 0 {name=V3 value="dc \{VDDVAL\}" savecurrent=false}
 C {gnd.sym} 32.5 -77.5 0 0 {name=l4 lab=GND}
 C {vdd.sym} 32.5 -157.5 0 0 {name=l5 lab=VDD}
 C {vdd.sym} 170 -65 0 0 {name=l6 lab=VDD}
 C {vsource.sym} 250 75 0 0 {name=V4 value="dc \{VBIASN_VAL\}" savecurrent=false}
-C {vsource.sym} 320 80 0 0 {name=V5 value="dc \{VBIASP_VAL\}" savecurrent=false}
+C {vsource.sym} 400 80 0 0 {name=V5 value="dc \{VBIASP_VAL\}" savecurrent=false}
 C {gnd.sym} 250 115 0 0 {name=l7 lab=GND}
-C {gnd.sym} 320 120 0 0 {name=l8 lab=GND}
-C {noconn.sym} 345 -42.5 0 1 {name=l9}
-C {noconn.sym} 346.25 -18.75 0 1 {name=l10}
-C {devices/code_shown.sym} -1268.75 -793.75 0 0 {name=NGSPICE only_toplevel=true
+C {gnd.sym} 350 110 0 0 {name=l8 lab=GND}
+C {devices/code_shown.sym} -1328.75 -798.75 0 0 {name=NGSPICE only_toplevel=true
 value="
 * =====================================================
 * 1. GF180 MODEL
@@ -158,7 +166,7 @@ write ota_op.raw v(Vop) v(Vom) vocm vod id_m7 gm_m7 gds_m7 vgs_m7 vds_m7 vdsat_m
 * TRANSIENT ANALYSIS
 * -----------------------------------------------------
 echo ===== TRANSIENT =====
-tran 10n 2m
+tran 10n 1m
 let vout_diff_tran = v(Vop)-v(Vom)
 plot vout_diff_tran
 plot v(Vop) v(Vom)
@@ -178,8 +186,8 @@ C {gnd.sym} 590 115 0 0 {name=l1 lab=GND}
 C {vsource.sym} 590 230 0 0 {name=V2 value="dc \{VCM\} ac 0.5 0" savecurrent=false}
 C {gnd.sym} 590 275 0 0 {name=l2 lab=GND}
 C {gnd.sym} 60 185 0 0 {name=l11 lab=GND}
-C {vsource.sym} -70 145 0 0 {name=V7 value="PULSE(1.70 1.60 40n 10n 10n 80n 160n)" savecurrent=false}
-C {gnd.sym} -70 185 0 0 {name=l12 lab=GND
+C {vsource.sym} -200 135 0 0 {name=V7 value="PULSE(1.70 1.60 40n 10n 10n 80n 160n)" savecurrent=false}
+C {gnd.sym} -200 185 0 0 {name=l12 lab=GND
 value="PULSE(20u -20u 0 1n 1n 100u 200u)"}
 C {vsource.sym} 60 145 0 0 {name=V6 value="PULSE(1.60 1.70 40n 10n 10n 80n 160n)" savecurrent=false}
 C {low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 270 60 0 0 {name=x1}
