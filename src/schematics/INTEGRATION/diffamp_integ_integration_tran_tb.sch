@@ -256,7 +256,7 @@ C {ipin.sym} 110 -890 3 1 {name=p41 lab=clk1}
 C {ipin.sym} 140 -1020 2 1 {name=p2 lab=clk2}
 C {ipin.sym} 710 -600 1 1 {name=p4 lab=Vbiasn}
 C {ipin.sym} 750 -600 1 1 {name=p42 lab=Vbiasp}
-C {A52/Integrasi/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 730 -575 0 0 {name=x1}
+C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 730 -575 0 0 {name=x1}
 C {lab_pin.sym} 180 -1080 1 0 {name=p21 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 180 -240 3 0 {name=p22 sig_type=std_logic lab=VSS}
 C {vsource.sym} -900 -920 0 0 {name=V1 value=3.3 savecurrent=false}

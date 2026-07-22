@@ -118,9 +118,9 @@ C {lab_pin.sym} 1680 -870 2 0 {name=p33 sig_type=std_logic lab=Vref-}
 C {lab_pin.sym} 1420 -890 0 0 {name=p34 sig_type=std_logic lab=DAC-}
 C {lab_pin.sym} 1420 -510 0 0 {name=p35 sig_type=std_logic lab=DAC+}
 C {ipin.sym} 1420 -680 2 1 {name=p40 lab=clk2B}
-C {A52/integrasi2/latched comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x2}
-C {A52/integrasi2/DAC 1 BIT/DAC_1_BIT.sym} 1690 -950 2 0 {name=x3}
-C {A52/integrasi2/DAC 1 BIT/DAC_1_BIT.sym} 1690 -570 2 0 {name=x4}
+C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x2}
+C {DAC_1_BIT.sym} 1690 -950 2 0 {name=x3}
+C {DAC_1_BIT.sym} 1690 -570 2 0 {name=x4}
 C {vsource.sym} -660 -610 0 0 {name=V10 value="PULSE(3.3 0 40.69n 1n 1n 36.69n 81.38n)" savecurrent=false}
 C {gnd.sym} -660 -560 0 0 {name=l2 lab=0}
 C {lab_pin.sym} -660 -680 1 0 {name=p52 sig_type=std_logic lab=clk2B}
@@ -166,10 +166,9 @@ value="
 .inc /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
 
 .param CL=0.5p
-.param Wp=12u
-.param Wn=6u
-.param Kall=1.28u
-.param Wpc=50u Wnc=2u Ws=2*Wp Ls=10u
+.param Wp=12u Wn=6u Kall=1.28u
+.param Wpc=50u Wnc=2u Wsc=2*Wp Lc=10u
+.param Wsp=3u Wsn=1.5u Ld=0.3u Wdp=2u Wdn=1u
 CLP Vop 0 \{CL\}
 CLM Vom 0 \{CL\}
 RLEAKP Vop 0 1T
@@ -182,7 +181,7 @@ Rd2 clk2  0 1meg
 .control
 set color0=white
 set color1=black
-tran 1u 2m
+tran 1u 5u
 let vicm_ota = (v(Vp)+v(Vm))/2
 let vid_ota  = v(Vp)-v(Vm)
 * --- window ala paper ---
@@ -357,4 +356,4 @@ C {lab_pin.sym} 860 -720 1 0 {name=p36 sig_type=std_logic lab=Vm}
 C {lab_pin.sym} 860 -680 3 0 {name=p37 sig_type=std_logic lab=Vp}
 C {lab_pin.sym} 460 -1120 1 0 {name=p55 sig_type=std_logic lab=DAC-}
 C {lab_pin.sym} 460 -280 3 0 {name=p56 sig_type=std_logic lab=DAC+}
-C {A52/integrasi2/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 1010 -615 0 0 {name=x1}
+C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 1010 -615 0 0 {name=x1}

@@ -30,7 +30,7 @@ value="
 save all
 tran 100n 3m
 let inst_pwr = v(vdd) * i(v1)
-plot inst(pwr)
+plot inst_pwr
 meas tran avg_power AVG inst_pwr from=0 to=5u
 set color0=white
 set color1=black
