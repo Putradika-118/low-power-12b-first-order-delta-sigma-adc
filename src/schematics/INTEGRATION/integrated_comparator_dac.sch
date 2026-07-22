@@ -40,12 +40,10 @@ C {vsource.sym} 260 -620 0 0 {name=V2 value="PULSE(-1 1 0 0.5u 0.5u 0 1u)" savec
 C {vsource.sym} 320 -520 0 0 {name=V4 value="PULSE(0 3.3 0 1n 1n 41.666n 83.333n)" savecurrent=false}
 C {vsource.sym} 200 -640 0 0 {name=V1 value=3.3 savecurrent=false}
 C {gnd.sym} 200 -610 0 0 {name=l1 lab=0}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched comparator/COMPARATOR_SD.sym} 320 -470 0 0 {name=x1}
 C {lab_pin.sym} 260 -670 1 0 {name=p3 sig_type=std_logic lab=VDD}
 C {vsource.sym} 415 -860 0 0 {name=V3 value=3.3 savecurrent=false}
 C {gnd.sym} 415 -830 0 0 {name=l7 lab=0}
 C {gnd.sym} 540 -790 0 0 {name=l11 lab=0}
-C {DAC_1_BIT.sym} 550 -790 0 0 {name=x2}
 C {vsource.sym} 510 -790 0 0 {name=V5 value=0 savecurrent=false}
 C {gnd.sym} 450 -810 0 0 {name=l9 lab=0}
 C {devices/code_shown.sym} 620 -705 0 0 {name=NGSPICE only_toplevel=true
@@ -77,3 +75,5 @@ C {vsource.sym} 290 -550 0 0 {name=V8 value=0 savecurrent=false}
 C {gnd.sym} 290 -520 0 0 {name=l3 lab=0}
 C {vsource.sym} 450 -840 0 0 {name=V7 value=3.3 savecurrent=false}
 C {gnd.sym} 510 -760 0 0 {name=l10 lab=0}
+C {dac_1bit/DAC_1_BIT.sym} 550 -790 0 0 {name=x1}
+C {latched_comparator/COMPARATOR_SD.sym} 320 -470 0 0 {name=x2}

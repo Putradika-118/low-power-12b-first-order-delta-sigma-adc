@@ -27,7 +27,6 @@ N -700 40 -700 80 {lab=Vref+}
 N -700 140 -700 160 {lab=0}
 N -490 40 -490 80 {lab=Vref-}
 N -490 140 -490 160 {lab=0}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/INTEGRATION/analog_integration.sym} 0 0 0 0 {name=x1}
 C {vsource.sym} -900 -450 0 0 {name=V1 value=3.3 savecurrent=false}
 C {gnd.sym} -900 -400 0 0 {name=l5 lab=0}
 C {vsource.sym} -700 -450 0 0 {name=V2 value=0 savecurrent=false}
@@ -77,3 +76,4 @@ C {lab_pin.sym} -20 -30 0 0 {name=p11 sig_type=std_logic lab=Vin-}
 C {lab_pin.sym} -20 -10 0 0 {name=p12 sig_type=std_logic lab=Vref-}
 C {lab_pin.sym} 280 -110 2 0 {name=p13 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 280 -90 2 0 {name=p14 sig_type=std_logic lab=VSS}
+C {integration/analog_integration.sym} 0 0 0 0 {name=x1}
