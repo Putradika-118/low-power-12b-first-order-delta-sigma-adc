@@ -118,9 +118,6 @@ C {lab_pin.sym} 1680 -870 2 0 {name=p33 sig_type=std_logic lab=Vref-}
 C {lab_pin.sym} 1420 -890 0 0 {name=p34 sig_type=std_logic lab=DAC-}
 C {lab_pin.sym} 1420 -510 0 0 {name=p35 sig_type=std_logic lab=DAC+}
 C {ipin.sym} 1420 -680 2 1 {name=p40 lab=clk2B}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x2}
-C {DAC_1_BIT.sym} 1690 -950 2 0 {name=x3}
-C {DAC_1_BIT.sym} 1690 -570 2 0 {name=x4}
 C {vsource.sym} -660 -610 0 0 {name=V10 value="PULSE(3.3 0 40.69n 1n 1n 36.69n 81.38n)" savecurrent=false}
 C {gnd.sym} -660 -560 0 0 {name=l2 lab=0}
 C {lab_pin.sym} -660 -680 1 0 {name=p52 sig_type=std_logic lab=clk2B}
@@ -356,4 +353,7 @@ C {lab_pin.sym} 860 -720 1 0 {name=p36 sig_type=std_logic lab=Vm}
 C {lab_pin.sym} 860 -680 3 0 {name=p37 sig_type=std_logic lab=Vp}
 C {lab_pin.sym} 460 -1120 1 0 {name=p55 sig_type=std_logic lab=DAC-}
 C {lab_pin.sym} 460 -280 3 0 {name=p56 sig_type=std_logic lab=DAC+}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 1010 -615 0 0 {name=x1}
+C {dac_1bit/DAC_1_BIT.sym} 1690 -830 0 1 {name=x1}
+C {dac_1bit/DAC_1_BIT.sym} 1690 -450 0 1 {name=x2}
+C {fully_differential_amplifier/fullydiffamp.sym} 1010 -615 0 0 {name=x3}
+C {latched_comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x4}

@@ -1,0 +1,24 @@
+##############################################################
+# xschemrc proyek — low-power-12b-first-order-delta-sigma-adc
+# WAJIB: jalankan xschem DARI folder ini:
+#   cd .../src/schematics && xschem
+##############################################################
+
+# 1) Ambil seluruh setup standar PDK gf180mcuD
+#    (model spice, library symbol PDK, dsb.)
+if { [info exists env(PDK_ROOT)] && [info exists env(PDK)] } {
+    source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+} else {
+    source /foss/pdks/gf180mcuD/libs.tech/xschem/xschemrc
+}
+
+# 2) Tambahkan ROOT PROYEK (= folder ini) di URUTAN PALING DEPAN.
+#    - Paling depan => saat insert symbol, referensi yang disimpan
+#      menjadi relatif thd root proyek (paling pendek & portabel),
+#      mis. "dac_1bit/DAC_1_BIT.sym"
+#    - [pwd] => otomatis benar di laptop siapa pun / folder copy mana pun
+set XSCHEM_LIBRARY_PATH [pwd]:$XSCHEM_LIBRARY_PATH
+
+# 3) (Opsional) arahkan hasil netlist/simulasi keluar dari repo
+#    supaya file .raw/.out tidak ikut ter-commit
+# set netlist_dir /foss/designs/simulations/adc12b

@@ -49,5 +49,5 @@ value="
 C {lab_pin.sym} 115 -190 1 0 {name=p2 sig_type=std_logic lab=VIN}
 C {gnd.sym} 170 -130 0 0 {name=l5 lab=0}
 C {lab_pin.sym} 435 -190 1 0 {name=p1 sig_type=std_logic lab=OUT}
-C {DAC_1_BIT.sym} 180 -130 0 0 {name=x1}
 C {lab_pin.sym} 145 -230 1 0 {name=p3 sig_type=std_logic lab=VDD}
+C {dac_1bit/DAC_1_BIT.sym} 180 -130 0 0 {name=x1}

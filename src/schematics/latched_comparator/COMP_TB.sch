@@ -45,7 +45,6 @@ C {vsource.sym} 100 -190 0 0 {name=V2 value="PULSE(-1 1 0 50u 50u 0 100u)" savec
 C {vsource.sym} 160 -90 0 0 {name=V4 value="PULSE(0 3.3 0 1n 1n 2.5u 5u)" savecurrent=false}
 C {vsource.sym} 40 -210 0 0 {name=V1 value=3.3 savecurrent=false}
 C {gnd.sym} 40 -180 0 0 {name=l1 lab=0}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched comparator/COMPARATOR_SD.sym} 160 -40 0 0 {name=x1}
 C {lab_pin.sym} 100 -240 1 0 {name=p3 sig_type=std_logic lab=VDD}
 C {capa.sym} 370 -170 0 0 {name=C1
 m=1
@@ -53,3 +52,4 @@ value=1f
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 370 -140 0 0 {name=l7 lab=0}
+C {latched_comparator/COMPARATOR_SD.sym} 160 -40 0 0 {name=x1}

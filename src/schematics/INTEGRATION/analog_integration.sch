@@ -232,7 +232,6 @@ C {lab_pin.sym} 540 -520 1 0 {name=p17 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 860 -520 1 0 {name=p18 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 620 -340 2 0 {name=p19 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 780 -340 0 0 {name=p20 sig_type=std_logic lab=VSS}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/FULLY DIFFERENTIAL AMPLIFIER/fullydiffamp.sym} 1160 -615 0 0 {name=x1}
 C {capa.sym} 1160 -890 3 0 {name=C5
 m=1
 value=150p
@@ -243,9 +242,6 @@ m=1
 value=150p
 footprint=1206
 device="ceramic capacitor"}
-C {/foss/designs/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x2}
-C {DAC_1_BIT.sym} 1690 -830 0 1 {name=x3}
-C {DAC_1_BIT.sym} 1690 -450 0 1 {name=x4}
 C {opin.sym} 1340 -740 3 0 {name=p11 lab=Vop}
 C {opin.sym} 1340 -680 3 1 {name=p12 lab=Vom}
 C {iopin.sym} 1680 -550 0 0 {name=p21 lab=VDD}
@@ -272,3 +268,7 @@ C {ipin.sym} 540 -930 3 1 {name=p41 lab=clk1}
 C {ipin.sym} 570 -1060 2 1 {name=p2 lab=clk2}
 C {ipin.sym} 1140 -640 1 1 {name=p4 lab=Vbiasn}
 C {ipin.sym} 1180 -640 1 1 {name=p42 lab=Vbiasp}
+C {fully_differential_amplifier/fullydiffamp.sym} 1160 -615 0 0 {name=x1}
+C {dac_1bit/DAC_1_BIT.sym} 1690 -450 0 1 {name=x2}
+C {dac_1bit/DAC_1_BIT.sym} 1690 -830 0 1 {name=x3}
+C {latched_comparator/COMPARATOR_SD.sym} 1400 -540 0 0 {name=x4}
