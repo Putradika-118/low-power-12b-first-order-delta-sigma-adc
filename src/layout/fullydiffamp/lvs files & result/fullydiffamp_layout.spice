@@ -1,0 +1,19 @@
+* NGSPICE file created from fullydiffamp$2.ext - technology: gf180mcuD
+
+.subckt fullydiffamp VDD Vop VSS Vom Vp Vbiasn Vm Vbiasp
+X0 Vop VDD VDD VDD pfet_03v3 ad=0.3p pd=2.2u as=0.3p ps=2.2u w=0.5u l=5u
+X1 a_8972_8156# a_8972_8156# VSS VSS nfet_03v3 ad=3p pd=11.2u as=3p ps=11.2u w=5u l=0.35u
+X2 Vop a_19837_8156# VSS VSS nfet_03v3 ad=0.3p pd=2.2u as=0.3p ps=2.2u w=0.5u l=15u
+X3 a_12853_13107# Vbiasn VSS VSS nfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=2u
+X4 Vom a_8972_8156# VSS VSS nfet_03v3 ad=0.3p pd=2.2u as=0.3p ps=2.2u w=0.5u l=15u
+X8 a_12853_13107# Vbiasn VSS VSS nfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=2u
+X10 Vom VDD VDD VDD pfet_03v3 ad=0.3p pd=2.2u as=0.3p ps=2.2u w=0.5u l=5u
+X16 Vom Vbiasp VDD VDD pfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=5u
+X17 a_19837_8156# Vom VDD VDD pfet_03v3 ad=0.6p pd=3.2u as=0.6p ps=3.2u w=1u l=2u
+X20 Vop Vbiasp VDD VDD pfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=5u
+X31 Vom Vm a_12853_13107# VSS nfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=5u
+X33 Vop Vp a_12853_13107# VSS nfet_03v3 ad=6p pd=21.2u as=6p ps=21.2u w=10u l=5u
+X38 a_19837_8156# a_19837_8156# VSS VSS nfet_03v3 ad=3p pd=11.2u as=3p ps=11.2u w=5u l=0.35u
+X39 a_8972_8156# Vop VDD VDD pfet_03v3 ad=0.6p pd=3.2u as=0.6p ps=3.2u w=1u l=2u
+.ends
+
