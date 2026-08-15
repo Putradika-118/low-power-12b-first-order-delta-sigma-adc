@@ -1,4 +1,4 @@
-* NGSPICE file created from VREF_SELECTOR_BUFFER$10.ext - technology: gf180mcuD
+* NGSPICE file created from VREF_SELECTOR_BUFFER.ext - technology: gf180mcuD
 
 .subckt VREF_SELECTOR_BUFFER VDD VSS VIN VREFP VREFN VOUT
 X4 a_3968_1632# VIN VDD VDD pfet_03v3 ad=3.75p pd=11.5u as=3.75p ps=11.5u w=5u l=0.28u

@@ -1,9 +1,8 @@
-v {xschem version=3.4.8RC file_version=1.3}
+v {xschem version=3.4.7 file_version=1.2}
 G {}
 K {}
 V {}
 S {}
-F {}
 E {}
 N 100 -10 100 30 {lab=GND}
 N 100 -10 130 -10 {lab=GND}
@@ -53,10 +52,10 @@ value="
 .param VBIASN_VAL=0.65
 .param VBIASP_VAL=2.5
 .param CL=30f
-.param Wp1=10u Wp2=1u  Wp3=0.25u 
-.param Wn1=10u Wn2=10u Wn3=5u   Wn4=0.25u
+.param Wp1=10u Wp2=1u  Wp3=0.5u 
+.param Wn1=10u Wn2=10u Wn3=5u   Wn4=0.5u
 .param Lp1=5u  Lp2=2u  Lp3=5u
-.param Ln1=5u  Ln2=2u  Ln3=0.45u   Ln4=15u
+.param Ln1=5u  Ln2=2u  Ln3=0.35u   Ln4=15u
 .param Gcm = 10u
 .option reltol=1e-4 abstol=1e-12 vntol=1e-6 temp=27
 
