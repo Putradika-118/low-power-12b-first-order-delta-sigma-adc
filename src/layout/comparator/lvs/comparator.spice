@@ -1,0 +1,31 @@
+* NGSPICE file created from comparator.ext - technology: gf180mcuD
+
+.subckt pfet_03v3_7DYXYB a_n118_n500# a_30_n500# a_n36_n629# w_n280_n769#
+X0 a_30_n500# a_n36_n629# a_n118_n500# w_n280_n769# pfet_03v3 ad=2.2p pd=10.88u as=2.2p ps=10.88u w=5u l=0.3u
+.ends
+
+.subckt nfet_03v3_X7Z8VV a_n256_n495# a_30_n250# a_n36_n379# a_n118_n250#
+X0 a_30_n250# a_n36_n379# a_n118_n250# a_n256_n495# nfet_03v3 ad=1.1p pd=5.88u as=1.1p ps=5.88u w=2.5u l=0.3u
+.ends
+
+.subckt pfet_03v3_QPXSGW a_30_n1000# w_n280_n1269# a_n118_n1000# a_n36_n1129#
+X0 a_30_n1000# a_n36_n1129# a_n118_n1000# w_n280_n1269# pfet_03v3 ad=4.4p pd=20.88u as=4.4p ps=20.88u w=10u l=0.3u
+.ends
+
+.subckt comparator VSS VREF_C VIN_C CLK VOUT VDD
+Xpfet_03v3_7DYXYB_0 m1_3659_3991# VOUT CLK VDD pfet_03v3_7DYXYB
+Xpfet_03v3_7DYXYB_1 m1_3659_3991# VDD a_1529_1971# VDD pfet_03v3_7DYXYB
+Xpfet_03v3_7DYXYB_2 VOUT m1_3371_6379# a_2051_5776# VDD pfet_03v3_7DYXYB
+Xpfet_03v3_7DYXYB_3 m1_3371_6379# a_1529_5905# VREF_C VDD pfet_03v3_7DYXYB
+Xpfet_03v3_7DYXYB_4 VDD a_2051_5776# CLK VDD pfet_03v3_7DYXYB
+Xpfet_03v3_7DYXYB_5 a_1529_1971# a_1677_5905# a_2051_5776# VDD pfet_03v3_7DYXYB
+Xnfet_03v3_X7Z8VV_0 VSS VOUT a_1529_1971# VSS nfet_03v3_X7Z8VV
+Xpfet_03v3_7DYXYB_6 a_1677_5905# a_1529_5905# VIN_C VDD pfet_03v3_7DYXYB
+Xnfet_03v3_X7Z8VV_1 VSS a_2051_5776# CLK VSS nfet_03v3_X7Z8VV
+Xnfet_03v3_X7Z8VV_2 VSS VOUT CLK a_1529_1971# nfet_03v3_X7Z8VV
+Xpfet_03v3_QPXSGW_0 VDD VDD a_1529_5905# VSS pfet_03v3_QPXSGW
+X0 a_1677_3069# VOUT VDD VDD pfet_03v3 ad=2.2p pd=10.88u as=2.2p ps=10.88u w=5u l=0.3u
+X1 a_1677_3069# CLK a_1529_1971# VDD pfet_03v3 ad=2.2p pd=10.88u as=2.2p ps=10.88u w=5u l=0.3u
+X2 VSS VOUT a_1529_1971# VSS nfet_03v3 ad=1.1p pd=5.88u as=1.1p ps=5.88u w=2.5u l=0.3u
+.ends
+

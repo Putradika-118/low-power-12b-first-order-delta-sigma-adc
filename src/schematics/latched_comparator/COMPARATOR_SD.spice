@@ -1,0 +1,18 @@
+** sch_path: /foss/designs/Cipeton2k26/low-power-12b-first-order-delta-sigma-adc/src/schematics/latched_comparator/COMPARATOR_SD.sch
+.subckt COMPARATOR_SD VDD VIN_C VREF_C CLK VOUT VSS
+*.PININFO VIN_C:I VREF_C:I CLK:I VOUT:O VDD:I VSS:I
+M1 net3 VIN_C net1 VDD pfet_03v3 L=0.3u W=5u nf=1
+M2 net5 VREF_C net1 VDD pfet_03v3 L=0.3u W=5u nf=1
+M3 VOUT net2 net5 VDD pfet_03v3 L=0.3u W=5u nf=1
+M4 net4 net2 net3 VDD pfet_03v3 L=0.3u W=5u nf=1
+M6 net2 CLK VDD VDD pfet_03v3 L=0.3u W=5u nf=1
+M7 net2 CLK VSS VSS nfet_03v3 L=0.3u W=2.5u nf=1
+M8 net4 CLK VOUT VSS nfet_03v3 L=0.3u W=2.5u nf=1
+M9 net7 VOUT VDD VDD pfet_03v3 L=0.3u W=5u nf=1
+M10 net4 CLK net7 VDD pfet_03v3 L=0.3u W=5u nf=1
+M11 net4 VOUT VSS VSS nfet_03v3 L=0.3u W=2.5u nf=1
+M12 net6 net4 VDD VDD pfet_03v3 L=0.3u W=5u nf=1
+M13 VOUT CLK net6 VDD pfet_03v3 L=0.3u W=5u nf=1
+M14 VOUT net4 VSS VSS nfet_03v3 L=0.3u W=2.5u nf=1
+M5 net1 VSS VDD VDD pfet_03v3 L=0.3u W=10u nf=1
+.ends
