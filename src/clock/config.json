@@ -1,0 +1,22 @@
+{
+    "DESIGN_NAME": "andig_clock",
+    "VERILOG_FILES": [
+        "dir::andig_clock.v"
+    ],
+    "CLOCK_PERIOD": 13.56,
+    "CLOCK_PORT": "in_clk",
+    "PDK": "gf180mcuD",
+    "PDK_ROOT": "/foss/pdks",
+
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 100 100",
+    "PL_TARGET_DENSITY": 0.40,
+
+    "PNR_SDC_FILE": "dir::constraint.sdc",
+    "SIGNOFF_SDC_FILE": "dir::constraint.sdc",
+
+    "SYNTH_STRATEGY": "DELAY 1",
+    "SYNTH_MAX_FANOUT": 5,
+    "FP_IO_MODE": 1,
+    "DRT_OPT_ITERS": 20
+}
