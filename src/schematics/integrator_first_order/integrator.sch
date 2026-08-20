@@ -21,7 +21,7 @@ N 410 -300 410 -280 {lab=clk2}
 N 410 -300 440 -300 {lab=clk2}
 N 380 -410 440 -410 {lab=clk1}
 N 340 -470 340 -440 {lab=VSS}
-N 160 -470 160 -440 {lab=VCM}
+N 160 -470 160 -440 {lab=OUT_DAC_PLUS}
 N 160 140 160 280 {lab=#net3}
 N 120 140 160 140 {lab=#net3}
 N 160 140 240 140 {lab=#net3}
@@ -38,7 +38,7 @@ N 410 180 410 200 {lab=clk2}
 N 410 200 440 200 {lab=clk2}
 N 380 310 440 310 {lab=clk1}
 N 340 340 340 370 {lab=VSS}
-N 160 340 160 370 {lab=VCM}
+N 160 340 160 370 {lab=OUT_DAC_MIN}
 N 160 -410 170 -410 {lab=VSS}
 N 330 -410 340 -410 {lab=VSS}
 N 90 -240 90 -230 {lab=VSS}
@@ -47,6 +47,8 @@ N 90 130 90 140 {lab=VSS}
 N 410 130 410 140 {lab=VSS}
 N 160 310 170 310 {lab=VSS}
 N 330 310 340 310 {lab=VSS}
+N 741.25 -236.25 792.5 -236.25 {lab=OUT_DAC_PLUS}
+N 740 216.25 790 216.25 {lab=OUT_DAC_MIN}
 C {symbols/nfet_03v3.sym} 140 -410 2 1 {name=M1
 L=0.3u
 W=1u
@@ -187,9 +189,13 @@ C {lab_pin.sym} 170 310 2 0 {name=p19 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 330 310 0 0 {name=p20 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 340 -470 1 0 {name=p23 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 340 370 3 0 {name=p24 sig_type=std_logic lab=VSS}
-C {lab_pin.sym} 160 370 3 0 {name=p29 sig_type=std_logic lab=VCM}
-C {lab_pin.sym} 160 -470 1 0 {name=p30 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} 160 370 3 0 {name=p29 sig_type=std_logic lab=OUT_DAC_MIN}
+C {lab_pin.sym} 160 -470 1 0 {name=p30 sig_type=std_logic lab=OUT_DAC_PLUS}
 C {lab_pin.sym} 480 -240 2 0 {name=p11 sig_type=std_logic lab=VOUTP_INT}
 C {lab_pin.sym} 480 140 2 0 {name=p12 sig_type=std_logic lab=VOUTM_INT}
 C {ipin.sym} 60 -300 0 0 {name=p2 lab=clk1}
 C {ipin.sym} 60 -410 0 0 {name=p4 lab=clk2}
+C {noconn.sym} 792.5 -236.25 1 0 {name=l15}
+C {lab_pin.sym} 770.625 -236.25 1 0 {name=p40 sig_type=std_logic lab=OUT_DAC_PLUS}
+C {lab_pin.sym} 770 216.25 1 0 {name=p37 sig_type=std_logic lab=OUT_DAC_MIN}
+C {noconn.sym} 790 216.25 1 0 {name=l19}

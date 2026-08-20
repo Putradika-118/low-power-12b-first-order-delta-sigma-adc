@@ -1,29 +1,23 @@
 * NGSPICE file created from integrator.ext - technology: gf180mcuD
 
-.subckt nfet_03v3_W5YWFC a_n118_n750# a_n256_n975# a_30_n750# a_n45_804#
-X0 a_30_n750# a_n45_804# a_n118_n750# a_n256_n975# nfet_03v3 ad=3.3p pd=15.88u as=3.3p ps=15.88u w=7.5u l=0.3u
+.subckt nfet_03v3_7X6UHZ a_30_n124# a_n256_n319# a_n118_n124# a_n36_116#
+X0 a_30_n124# a_n36_116# a_n118_n124# a_n256_n319# nfet_03v3 ad=0.44p pd=2.88u as=0.44p ps=2.88u w=1u l=0.3u
 .ends
 
-.subckt cap_mim_2p0fF_3RDREM m4_n7708_n7588# m4_n7828_n7708#
-X0 m4_n7708_n7588# m4_n7828_n7708# cap_mim_2f0_m4m5_noshield c_width=75.88u c_length=75.88u
+.subckt cap_mim_2p0fF_5GVGCQ m4_n1120_n1000# m4_n1240_n1120#
+X0 m4_n1120_n1000# m4_n1240_n1120# cap_mim_2f0_m4m5_noshield c_width=10u c_length=10u
 .ends
 
-.subckt cap_mim_2p0fF_Y6V987 m4_n4435_n4315# m4_n4555_n4443#
-X0 m4_n4435_n4315# m4_n4555_n4443# cap_mim_2f0_m4m5_noshield c_width=43.15u c_length=43.15u
-.ends
-
-.subckt integrator clk1 clk2 VSS gnd Voutp Vinp Voutn Vinn
-XXM1 gnd VSS m3_n690_1740# clk2 nfet_03v3_W5YWFC
-XXM2 gnd VSS m2_2550_20# clk1 nfet_03v3_W5YWFC
-XXM3 m3_n690_1740# VSS Vinp clk1 nfet_03v3_W5YWFC
-XXM4 m2_2550_20# VSS Voutp clk2 nfet_03v3_W5YWFC
-XXM5 gnd VSS m3_270_n3070# clk2 nfet_03v3_W5YWFC
-XXM6 gnd VSS m3_2140_n3070# clk1 nfet_03v3_W5YWFC
-XC2 Vinp Voutp cap_mim_2p0fF_3RDREM
-XC1 m3_n690_1740# m2_2550_20# cap_mim_2p0fF_Y6V987
-XXM7 m3_270_n3070# VSS Vinn clk1 nfet_03v3_W5YWFC
-XXM8 m3_2140_n3070# VSS Voutn clk2 nfet_03v3_W5YWFC
-XC3 m3_270_n3070# m3_2140_n3070# cap_mim_2p0fF_Y6V987
-XC4 Vinn Voutn cap_mim_2p0fF_3RDREM
+.subckt integrator Vin+ Vin- clk1 clk2 VSS
+XXM1 m3_n146_n176# VSUBS OUT_DAC_PLUS clk2 nfet_03v3_7X6UHZ
+XXM2 m3_1482_n185# VSUBS VSS clk1 nfet_03v3_7X6UHZ
+XXM3 Vin+ VSUBS m3_n146_n176# clk1 nfet_03v3_7X6UHZ
+XXM4 XM4/a_30_n124# VSUBS m3_1482_n185# clk2 nfet_03v3_7X6UHZ
+XXM5 m3_331_n1220# VSUBS OUT_DAC_MIN clk2 nfet_03v3_7X6UHZ
+XXM6 m3_1979_n1220# VSUBS VSS clk1 nfet_03v3_7X6UHZ
+XC1 m3_n146_n176# m3_1482_n185# cap_mim_2p0fF_5GVGCQ
+XXM7 Vin- VSUBS m3_331_n1220# clk1 nfet_03v3_7X6UHZ
+XXM8 XM8/a_30_n124# VSUBS m3_1979_n1220# clk2 nfet_03v3_7X6UHZ
+XC3 m3_331_n1220# m3_1979_n1220# cap_mim_2p0fF_5GVGCQ
 .ends
 
