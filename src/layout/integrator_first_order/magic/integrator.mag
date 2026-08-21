@@ -1,7 +1,7 @@
 magic
 tech gf180mcuD
 magscale 1 10
-timestamp 1787244029
+timestamp 1787279930
 << metal1 >>
 rect 417 486 551 532
 rect 2107 485 2220 532
@@ -11,6 +11,14 @@ rect 1104 -1005 1152 199
 rect 2064 -776 2207 -730
 rect 1624 -869 1625 -810
 rect 1029 -1061 1624 -1005
+rect 1843 -1299 1888 -1296
+rect 1843 -1342 1890 -1299
+rect 1895 -1473 1973 -1342
+rect 1895 -1525 1907 -1473
+rect 1960 -1525 1973 -1473
+rect 1895 -1530 1973 -1525
+<< via1 >>
+rect 1907 -1525 1960 -1473
 << metal2 >>
 rect -445 575 815 632
 rect -448 351 245 408
@@ -42,7 +50,10 @@ rect 841 -1327 902 -1226
 rect 839 -1578 902 -1327
 rect 1755 -1466 1818 -1226
 rect 2722 -1466 2784 -631
-rect 1755 -1524 2784 -1466
+rect 1755 -1473 2784 -1466
+rect 1755 -1525 1907 -1473
+rect 1960 -1525 2784 -1473
+rect 1755 -1530 2784 -1525
 rect -331 -1635 902 -1578
 rect 444 -1636 615 -1635
 << via2 >>
@@ -202,5 +213,4 @@ port 3 nsew signal input
 rlabel metal2 -448 351 -391 408 0 clk2
 port 4 nsew signal input
 rlabel metal2 2724 -1063 2782 -1002 0 VSS
-port 5 nsew ground bidirectional
 << end >>
