@@ -8,16 +8,16 @@ X0 a_30_n124# a_n36_116# a_n118_n124# a_n256_n319# nfet_03v3 ad=0.44p pd=2.88u a
 X0 m4_n1120_n1000# m4_n1240_n1120# cap_mim_2f0_m4m5_noshield c_width=10u c_length=10u
 .ends
 
-.subckt integrator Vin+ Vin- clk1 clk2 VSS
-XXM1 m3_n146_n176# VSUBS OUT_DAC_PLUS clk2 nfet_03v3_7X6UHZ
-XXM2 m3_1482_n185# VSUBS VSS clk1 nfet_03v3_7X6UHZ
-XXM3 Vin+ VSUBS m3_n146_n176# clk1 nfet_03v3_7X6UHZ
-XXM4 XM4/a_30_n124# VSUBS m3_1482_n185# clk2 nfet_03v3_7X6UHZ
-XXM5 m3_331_n1220# VSUBS OUT_DAC_MIN clk2 nfet_03v3_7X6UHZ
-XXM6 m3_1979_n1220# VSUBS VSS clk1 nfet_03v3_7X6UHZ
+.subckt integrator Vin+ Vin- clk1 clk2
+XXM1 m3_n146_n176# VSS OUT_DAC_PLUS clk2 nfet_03v3_7X6UHZ
+XXM2 m3_1482_n185# VSS VSS clk1 nfet_03v3_7X6UHZ
+XXM3 Vin+ VSS m3_n146_n176# clk1 nfet_03v3_7X6UHZ
+XXM4 XM4/a_30_n124# VSS m3_1482_n185# clk2 nfet_03v3_7X6UHZ
+XXM5 m3_331_n1220# VSS OUT_DAC_MIN clk2 nfet_03v3_7X6UHZ
+XXM6 m3_1979_n1220# VSS VSS clk1 nfet_03v3_7X6UHZ
 XC1 m3_n146_n176# m3_1482_n185# cap_mim_2p0fF_5GVGCQ
-XXM7 Vin- VSUBS m3_331_n1220# clk1 nfet_03v3_7X6UHZ
-XXM8 XM8/a_30_n124# VSUBS m3_1979_n1220# clk2 nfet_03v3_7X6UHZ
+XXM7 Vin- VSS m3_331_n1220# clk1 nfet_03v3_7X6UHZ
+XXM8 XM8/a_30_n124# VSS m3_1979_n1220# clk2 nfet_03v3_7X6UHZ
 XC3 m3_331_n1220# m3_1979_n1220# cap_mim_2p0fF_5GVGCQ
 .ends
 

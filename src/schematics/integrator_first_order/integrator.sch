@@ -105,11 +105,6 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {capa.sym} 270 -240 1 1 {name=C1
-m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"}
 C {ipin.sym} 10 -240 0 0 {name=p3 lab=Vin+}
 C {lab_pin.sym} 440 -410 2 0 {name=p1 sig_type=std_logic lab=clk1}
 C {lab_pin.sym} 440 -300 2 0 {name=p5 sig_type=std_logic lab=clk2}
@@ -169,11 +164,6 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {capa.sym} 270 140 1 0 {name=C2
-m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"}
 C {ipin.sym} 10 140 2 1 {name=p6 lab=Vin-}
 C {lab_pin.sym} 440 310 0 1 {name=p7 sig_type=std_logic lab=clk1}
 C {lab_pin.sym} 60 200 2 1 {name=p8 sig_type=std_logic lab=clk1}
@@ -199,3 +189,15 @@ C {noconn.sym} 792.5 -236.25 1 0 {name=l15}
 C {lab_pin.sym} 770.625 -236.25 1 0 {name=p40 sig_type=std_logic lab=OUT_DAC_PLUS}
 C {lab_pin.sym} 770 216.25 1 0 {name=p37 sig_type=std_logic lab=OUT_DAC_MIN}
 C {noconn.sym} 790 216.25 1 0 {name=l19}
+C {symbols/cap_mim_2f0fF.sym} 270 -240 3 0 {name=C1
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
+m=1}
+C {symbols/cap_mim_2f0fF.sym} 270 140 3 0 {name=C3
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
+m=1}
